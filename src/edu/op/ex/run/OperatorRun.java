@@ -43,6 +43,8 @@ public class OperatorRun {
 
         // op.method1();
         // op.method2();
-        op.method3();
+        // op.method3(); // operatorEx 내부에 존재하는 method3() 기능을
+                      // op 별칭으로 호출하여 사용
+        op.method4();
     }
 }
