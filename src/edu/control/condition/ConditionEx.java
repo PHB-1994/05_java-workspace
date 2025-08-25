@@ -110,7 +110,7 @@ public class ConditionEx {
         * */
         String result;
 
-        if(month < 1 || month > 12){
+        if(month < 1 || month > 12) {
             System.out.println("잘못 입력하였습니다.");
             return;
         }
