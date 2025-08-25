@@ -16,6 +16,7 @@ public class Exercise1 {
         char gender = 'M';
         String hobby = "프로그래밍";
 
-        System.out.printf("이름은 %s이고 나이는 %d세 키는 %.1f, 성별은 %c, 취미는 %s 입니다.",name,age,height,gender,hobby);
+        System.out.println("=== 개인정보 ===");
+        System.out.printf("이름 : %s\n나이 : %d세\n키 : %.1fcm\n성별 : %c\n취미 : %s",name,age,height,gender,hobby);
     }
 }
