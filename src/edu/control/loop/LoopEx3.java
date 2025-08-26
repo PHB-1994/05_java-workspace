@@ -2,7 +2,7 @@ package edu.control.loop;
 
 import java.util.Scanner;
 
-/*
+/**
 * 루프 기능용 클래스
 * 문자열 / while 문 기능 작성
 * */
@@ -10,7 +10,7 @@ public class LoopEx3 {
 
     Scanner sc=new Scanner(System.in);
 
-    /*
+    /**
     * 문자열 한 글자씩 출력하기
     * */
     public void method1(){
@@ -33,7 +33,7 @@ public class LoopEx3 {
     }
 
     // while(조건식) : 끝이 확실하지 않은 반복에 사용
-    /*
+    /**
     * -1 이 입력될 때까지 정수를 계속 입력받아
     * 입력받은 수의 합계를 구하기
     *
@@ -61,5 +61,120 @@ public class LoopEx3 {
             }
         }
         System.out.println("-1 을 입력하기 전까지 숫자 합계 : " + sum);
+    }
+
+    /**
+    * while 문을 활용하여
+    * 0 이 입력될 때 까지 정수를 계속 입력 받고
+    * 0 입력 시 누적된 합계 출력
+    *
+    * while(true){ // 무한 반복
+    *
+    *   if input == 0 break;
+    *   // 반복 종료하는 분기문(break)
+    *   활용해서 while 문 종료
+    * }
+    *
+    * 변수이름 int sum
+    *         int input
+    * */
+    public void method3(){
+        int sum = 0;
+        int input = 0;
+
+        System.out.println("0 을 입력하면 프로그램이 종료됩니다.");
+        System.out.println("0 을 입력하기 전까지 모든 숫자는 더해집니다.");
+
+        while(true){
+            sum += input;
+            System.out.print("정수를 입력하세요 : ");
+            input = sc.nextInt();
+
+            if(input == 0) break;
+        }
+        System.out.print("합계 : " + sum);
+    }
+
+    /*
+    * do ~ while
+    * 조건식이 뒤에 작성된 while 문
+    * 최소 1회 이상은 반복을 무조건 보장
+    * while 문이 false 여도 최초 1회는 무조건 조건이 true 일 때
+    * 식을 실행
+    * */
+    /**
+    0 이 입력될 때 까지 정수를 계속 입력받고 0 입력 시 누적된 합계 출력
+    */
+    public void method4(){
+        int sum = 0;
+        int input = 0;
+
+        do { // 입력한 값이 0 이 아닐 때 반복
+            System.out.print("정수를 입력하세요 : ");
+            input = sc.nextInt();
+            sum += input;
+        } while(input != 0); // input 이 0 이 아닐 때 반복하기 위한 조건을 작성
+        System.out.println("숫자 합계 : " + sum);
+
+    }
+
+    /**
+     * 문자열을 입력받아 i-- 를 활용하여 거꾸로 출력
+     *
+     * String.length() + String.charAt() + for 문을 활용
+     * length 활용
+     * 메서드 기능 명칭 method5()
+     * 변수이름 : String str    int i
+     * */
+    public void method5(){
+        System.out.print("문자열을 입력하세요 : ");
+
+        String str = sc.nextLine();
+
+        // 문자열의 길이에서 -1 부터 0 까지 감소하며 출력
+        // index 는 0 부터 시작하지만 length 는 1부터 시작하기 때문에 -1 한 것
+        for(int i = str.length(); i > 0; i--){
+            System.out.printf("%c ", str.charAt(i-1));
+        }
+        System.out.println();
+    }
+
+    /**
+     * Math.random()                 // 0.0 <= 값 <  1.0  (double 소수 타입 형태)
+     * Math.random() * 10            // 0.0 <= 값 <  10.0 (0 이외 1부터 모두 10까지로 범위 증가(
+     * (int)Math.random() * 10       //   0 <= 값 <  10   (정수 형태로 변환)
+     * (int)Math.random() * 10 + 1   //   1 <= 값 <= 10   (정수 형태로 변환)
+     *
+     * 1 ~ 10 사이의 랜덤 숫자를 맞출 때까지 반복
+     * Math.random() + 난수 -> 정수로 형변환 활용
+     * (int)(Math.random() * 10)  + 1;
+     * 변수이름 : int answer input count
+     *
+     * 만약에 정답보다 사용자가 입력한 값이 크다면 -> 작성한 숫자보다 정답은 작습니다.
+     *       정답보다 사용자가 입력한 값이 작다면 -> 작성한 숫자보다 정답은 큽니다.
+     *       정답이라면 정답입니다! 출력
+     * */
+    public void method6(){
+        int answer = (int)(Math.random() * 10)  + 1; // 1 ~ 10 사이의 정수
+        int input = 0; // 사용자가 작성한 숫자를 저장할 데이터 변수
+        int count = 0; // 정답을 맞추기 위해 시도한 횟수
+
+        System.out.print("1 ~ 10 사이의 숫자를 맞춰보세요 !");
+
+        while(true){
+            System.out.print("숫자를 입력하세요 : ");
+            input = sc.nextInt();
+            count++; // 입력 시도할 때마다 자동으로 + 1 씩 증가한 후 변수 이름에 시도횟수 저장
+
+            if(input == answer){
+                // {} 내 에 구문이 2가지 이상일 경우에는 중괄호 필요!
+                System.out.println("정답입니다! 정답 숫자 : " + answer + " 시도 횟수 : " + count);
+                break;
+            }else if(input > answer){
+                System.out.print("입력한 숫자가 정답보다 큽니다.");
+            }else if(input < answer){
+                System.out.print("입력한 숫자가 정답보다 작습니다.");
+            }
+        }
     }
 }
