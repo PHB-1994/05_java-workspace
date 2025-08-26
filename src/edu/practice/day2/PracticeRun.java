@@ -8,7 +8,7 @@ public class PracticeRun {
 
         // practice.method1();
         // practice.method2();
-        practice.method3();
+        // practice.method3();
         // practice.method4();
         // practice.method5();
         // practice.method6();
@@ -22,5 +22,9 @@ public class PracticeRun {
          * 숫자 글자수 : 5
          * 공백 마침표는 제외하고 셋 숫자값
          */
+
+        // practice.method8();
+        // practice.method9();
+        // practice.method10();
     }
 }

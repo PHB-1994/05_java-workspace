@@ -37,6 +37,7 @@ public class Practice {
         }
     }
 
+
     /**
      * 문제 2번 : 별표 삼각형 만들기
      */
@@ -57,12 +58,12 @@ public class Practice {
 
         for(int i = 1; i <= height; i++){
             for(int j = 1; j < i; j++){
-                System.out.print(j);
+                System.out.print("*");
             }
-            System.out.println(i);
+            System.out.println("*");
         }
-        // 별 표시 어떻게 함..?
     }
+
 
     /**
      * 문제 3번 : 팩토리얼 계산기
@@ -75,16 +76,24 @@ public class Practice {
          */
 
         System.out.print("팩토리얼을 구할 숫자를 입력하세요 : ");
-        int num = sc.nextInt();
-        long factorial = 1;
+        int number = sc.nextInt();
+        int factorial = 1;
 
-        for(int i = 1; i <= num; i++){
+        // 계산 과정을 넣기 위한 문자열 변수
+        String process = "";
+
+        // number 부터 1까지 내려가면서 계산
+        for(int i = number; i >= 1; i--){
             factorial *= i;
-            System.out.printf("%d! = %d x %d = %d", num,num,i,factorial);
+
+            process += i; // 문자열의 현재 숫자(i)를 추가
+            if(i > 1) {
+                process += " x ";
+            }
         }
-
-
+        System.out.printf("%d! = %s = %d\n", number,process,factorial);
     }
+
 
     /**
      * 문제 4번 : 소수 판별기
@@ -101,9 +110,59 @@ public class Practice {
             if(number % i == 0){
                 isPrime = false;
                 System.out.printf("%d은/는 소수입니다.\n",i);
+                break;
             }else {
                 System.out.printf("%d은/는 소수가 아닙니다.\n",i);
             }
+        }
+    }
+
+    /**
+     * 문제 5번 : 구구단 선택기
+     */
+    public void method5(){
+
+        /**
+         * === 구구단 프로그램 ===
+         * 1. 특정 단 출력
+         * 2. 전체 구구단 출력
+         * 0. 종료
+         * 선택: 1
+         * 몇 단을 출력하시겠습니까? 7
+         * [7단]
+         * 7 × 1 = 7
+         * 7 × 2 = 14
+         * ...
+         * 7 × 9 = 63
+         */
+
+        System.out.println("===구구단 프로그램===");
+        System.out.println("1. 특정 단 출력");
+        System.out.println("2. 전체 구구단 출력");
+        System.out.println("0. 종료");
+
+        System.out.print("선택 : ");
+        int choice = sc.nextInt();
+
+
+
+        if(choice == 1) {
+            System.out.print("몇 단을 출력하시겠습니까? ");
+            int dan = sc.nextInt();
+
+            System.out.printf("\n[%d단]\n",dan);
+            for(int i = 1; i <= 9; i++){
+                System.out.printf("%d x %d = %2d\n",dan,i,dan * i);
+            }
+        }else if(choice == 2) {
+            for(int i = 1; i <= 9; i++){
+                System.out.printf("\n[%d단]\n",i);
+                for(int j = 1; j <= 9; j++){
+                    System.out.printf("%d x %d = %2d\n",i,j,i * j);
+                }
+            }
+        } else if(choice == 0) {
+//            break;
         }
     }
 
@@ -132,7 +191,7 @@ public class Practice {
         System.out.println("1 ~ 50 사이의 숫자를 맞혀보세요!");
 
         while(count < Max_TRIES){
-            System.out.printf("시도 %d/%d : ", count, Max_TRIES);
+            System.out.printf("시도 %d/%d : ", count +1, Max_TRIES);
             int input = sc.nextInt();
             // 카운터가 맞는지 모르겠음
 
@@ -152,6 +211,7 @@ public class Practice {
 
 
     }
+
 
     /**
      * 문제 7번 : 문자열 분석기
@@ -205,5 +265,77 @@ public class Practice {
         System.out.println("숫자 아닌 글자수 : " + letterCount);
         System.out.println("숫자 글자수 : " + digitCount);
         System.out.println("기타 문자(공백, 기호) : " + otherCount);
+    }
+
+
+    /**
+     * 문제 8번 : 성적 관리 프로그램
+     */
+    public void method8(){
+
+        /**
+         * 5명의 성적을 입력하세요.
+         * 1번 학생: 85
+         * 2번 학생: 92
+         * 3번 학생: 78
+         * 4번 학생: 96
+         * 5번 학생: 84
+         *
+         * === 성적 통계 ===
+         * 총점: 435점
+         * 평균: 87.0점
+         * 최고점: 96점
+         * 최저점: 78점
+         */
+
+        System.out.print("5명의 성적을 입력하세요.");
+
+        int[] scores = new int[5];
+
+        int total = 0;
+        double average = 0;
+
+        int max = Math.max(scores[0], scores[1]);
+        int min = Math.min(scores[0], scores[1]);
+    }
+
+
+    /**
+     * 문제 9번 : 배열 뒤집기
+     */
+    public void method9(){
+
+        /**
+         * 배열 크기를 입력하세요 (1~10): 4
+         * 1번째 숫자: 10
+         * 2번째 숫자: 20
+         * 3번째 숫자: 30
+         * 4번째 숫자: 40
+         *
+         * 원본 배열: [10, 20, 30, 40]
+         * 뒤집힌 배열: [40, 30, 20, 10]
+         */
+
+        System.out.print("배열 크기를 입력하세요 (1 ~ 10) : ");
+        int size = sc.nextInt();
+
+    }
+
+
+    /**
+     * 문제 10번 : 간단한 로또 번호 생성기
+     */
+    public void method10(){
+
+        /**
+         * === 간단 로또 번호 생성기 ===
+         * 생성된 번호: 3 7 12 18 20
+         * 다시 생성하시겠습니까? (y/n): y
+         * 생성된 번호: 1 5 9 15 19
+         * 다시 생성하시겠습니까? (y/n): n
+         * 프로그램을 종료합니다.
+         */
+
+
     }
 }
