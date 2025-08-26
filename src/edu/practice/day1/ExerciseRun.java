@@ -13,6 +13,7 @@ public class ExerciseRun {
     // e2.method1();
     // e3.method1();
     // e4.method1();
-    e5.method1();
+    // e5.method1(); // 띠 기능 없음
+    e5.method2(); // 띠 기능 있음
     }
 }

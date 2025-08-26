@@ -3,12 +3,15 @@ package edu.practice.day1;
 public class Exercise1 {
 
     public void method1(){
-//        === 개인정보 ===
-//        이름: 김자바
-//        나이: 25세
-//        키: 175.5cm
-//        성별: M
-//        취미: 프로그래밍
+
+        /**
+         *         === 개인정보 ===
+         *         이름: 김자바
+         *         나이: 25세
+         *         키: 175.5cm
+         *         성별: M
+         *         취미: 프로그래밍
+         */
 
         String name = "김자바";
         int age = 25;

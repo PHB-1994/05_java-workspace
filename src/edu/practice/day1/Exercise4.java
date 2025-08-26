@@ -5,12 +5,17 @@ import java.util.Scanner;
 public class Exercise4 {
 
     public void method1(){
-//        국어 점수: 85
-//        영어 점수: 90
-//        수학 점수: 88
-//
-//        평균: 87.67점
-//        학점: B
+        // 변수 이름을 선언하거나 변수이름에 데이터를 넣는 것은
+        // 메서드 내부에 작성하지 않고 보통은
+        // class 파일이름 바로 아래에 작성
+        /**
+         *         국어 점수: 85
+         *         영어 점수: 90
+         *         수학 점수: 88
+         *
+         *         평균: 87.67점
+         *         학점: B
+         */
 
         Scanner sc = new Scanner(System.in);
 
@@ -25,21 +30,16 @@ public class Exercise4 {
 
         double average = (korean + english + math) / 3.0;
         char grade;
-        if(average >= 90){
-            grade = 'A';
-        }else if(average >= 80){
-            grade = 'B';
-        }else if(average >= 70){
-            grade = 'C';
-        }else if(average >= 60){
-            grade = 'D';
-        }else {
-            grade = 'E';
-        }
+        if(average >= 90)       grade = 'A';
+        else if(average >= 80)  grade = 'B';
+        else if(average >= 70)  grade = 'C';
+        else if(average >= 60)  grade = 'D';
+        else                    grade = 'E';
+
 
         System.out.println();
 
-        System.out.printf("평균 : %.2f점\n학점 : %s", average,grade);
+        System.out.printf("평균 : %.2f점\n학점 : %c", average,grade);
 
     }
 }
