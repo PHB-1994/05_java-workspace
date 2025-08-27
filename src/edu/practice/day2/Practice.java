@@ -109,12 +109,16 @@ public class Practice {
         for(int i = 2; i < number; i++){
             if(number % i == 0){
                 isPrime = false;
-                System.out.printf("%d은/는 소수입니다.\n",i);
                 break;
-            }else {
-                System.out.printf("%d은/는 소수가 아닙니다.\n",i);
             }
         }
+        if(isPrime){
+            System.out.printf("%d은/는 소수입니다.\n",number);
+        }else {
+            System.out.printf("%d은/는 소수가 아닙니다.\n",number);
+        }
+
+
     }
 
     /**
@@ -136,17 +140,16 @@ public class Practice {
          * 7 × 9 = 63
          */
 
-        System.out.println("===구구단 프로그램===");
-        System.out.println("1. 특정 단 출력");
-        System.out.println("2. 전체 구구단 출력");
-        System.out.println("0. 종료");
+        while(true){
+            System.out.println("===구구단 프로그램===");
+            System.out.println("1. 특정 단 출력");
+            System.out.println("2. 전체 구구단 출력");
+            System.out.println("0. 종료");
 
-        System.out.print("선택 : ");
-        int choice = sc.nextInt();
+            System.out.print("선택 : ");
+            int choice = sc.nextInt();
 
-
-
-        if(choice == 1) {
+            if(choice == 1) {
             System.out.print("몇 단을 출력하시겠습니까? ");
             int dan = sc.nextInt();
 
@@ -162,8 +165,9 @@ public class Practice {
                 }
             }
         } else if(choice == 0) {
-//            break;
-        }
+            break;
+        }}
+
     }
 
 
@@ -191,7 +195,8 @@ public class Practice {
         System.out.println("1 ~ 50 사이의 숫자를 맞혀보세요!");
 
         while(count < Max_TRIES){
-            System.out.printf("시도 %d/%d : ", count +1, Max_TRIES);
+            count++;
+            System.out.printf("시도 %d/%d : ", count, Max_TRIES);
             int input = sc.nextInt();
             // 카운터가 맞는지 모르겠음
 
@@ -200,10 +205,8 @@ public class Practice {
                 break;
             }else if(answer > input){
                 System.out.println("입력한 숫자보다 정답이 큽니다.");
-                count++;
             }else if(answer < input) {
                 System.out.println("입력한 숫자보다 정답이 작습니다.");
-                count++;
             }
         }
 
@@ -335,7 +338,6 @@ public class Practice {
          * 다시 생성하시겠습니까? (y/n): n
          * 프로그램을 종료합니다.
          */
-
 
     }
 }
