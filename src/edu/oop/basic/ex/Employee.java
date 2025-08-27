@@ -1,0 +1,136 @@
+package edu.oop.basic.ex;
+
+public class Employee {
+    /* 속성(필드) - private 으로 캡슐화 */
+    private String name;            // 이름
+    private int age;                // 나이
+    private String departement;     // 부서
+    private String position;        // 직급
+    private int salary;             // 연봉 (만원 단위)
+    private String employeeId;      // 사원번호
+    private int workYears;          // 근무년수
+
+    /* 기능(메서드) */
+
+    // 생성자 - 기본
+    public Employee() {
+    }
+
+    // 생성자 - 필수 이름 부서 직급 사원번호
+    public Employee(String name, String departement, String position, String employeeId) {
+        this.name = name;
+        this.departement = departement;
+        this.position = position;
+        this.employeeId = employeeId;
+    }
+
+    // setter
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setDepartement(String departement) {
+        this.departement = departement;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public void setEmployeeId(String employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public void setWorkYears(int workTears) {
+        this.workYears = workTears;
+    }
+
+
+    // getter
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getDepartement() {
+        return departement;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public int getSalary() {
+        return salary;
+    }
+
+    public String getEmployeeId() {
+        return employeeId;
+    }
+
+    public int getWorkYears() {
+        return workYears;
+    }
+
+
+    // 개발자가 필요로 하는 기능 생성
+    /**
+     * 회사원 자기 소개
+     */
+    public void introduce(){
+        System.out.printf("안녕하세요. %s부서 %s %s입니다.\n",getDepartement(),getPosition(),getName());
+    }
+
+    /**
+     * 근무 상태 출력
+     */
+    public void work(){
+        System.out.printf("%s님이 %s부서에서 열심히 근무 중입니다.\n",getName(), getDepartement());
+    }
+
+    /**
+     * 연봉 정보 출력
+     */
+    public void salaryInfo(){
+        System.out.printf("%s님의 연봉 : %,d만원",getName(),getSalary());
+    }
+
+    /**
+     * 승진 가능 여부 확인
+     * 근무년수 3년 이상 승진 가능
+     * checkPromotion   if
+     *          ㅇㅇ 님은 근무년수 ㅇㅇ 년으로 승진 대상자입니다.
+     * 3년 이하는 ㅇㅇ 님은 근무년수 ㅇㅇ 년으로 승진까지 00년 더 필요로 합니다.
+     */
+    /*
+    캡슐화 원칙대로 수행
+    System.out.printf("%s님은 근무년수 %d년으로 승진 대상자입니다. \n",getName(),getWorkYears());
+    캡슐화 원칙 위배하여 수행
+    System.out.printf("%s님은 근무년수 %d년으로 승진 대상자입니다. \n",name,workYear);
+
+    추후에는 속성만 작성해놓은 클래스와
+    속성을 활용한 기능을 작성해놓은 클래스
+    속성과 기능을 활용해서 실행하는 클래스 나뉨
+
+    위에 작성한 System 구문이 모두 가능하지만 추후 미래를 위하여 get변수이름() 형식으로 작성하는 습관을
+    갖고 있는 것이 좋음
+    */
+    public void checkPromotion(){
+        if(workYears >= 3){
+            System.out.printf("%s님은 근무년수 %d년으로 승진 대상자입니다. \n",getName(),getWorkYears());
+        }else {
+            System.out.printf("%s님은 근무년수 %d년으로 승진까지 %d년 더 필요합니다. \n",getName(),getWorkYears(),(3-getWorkYears()));
+        }
+    }
+}
