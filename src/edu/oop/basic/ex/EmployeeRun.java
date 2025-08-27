@@ -8,7 +8,7 @@ public class EmployeeRun {
     public static void main(String[] args){
         Employee emp1 = new Employee();
         // 기본 생성자를 활용해서 데이터를 추가
-        emp1.setName("갬가발");
+        emp1.setName("김개발");
         emp1.setAge(28);
         emp1.setDepartement("개발팀");
         emp1.setPosition("주임");
@@ -62,5 +62,30 @@ public class EmployeeRun {
         System.out.println(emp2.toString());
         System.out.println(emp3.toString());
         // Sout + toString
+
+        System.out.println("===== 자기소개 타임 =====");
+        emp1.introduce();
+        emp2.introduce();
+        emp3.introduce();
+
+        System.out.println("===== 근무 현황 =====");
+        emp1.work();
+        emp2.work();
+        emp3.work();
+
+        System.out.println("===== 연봉 정보 =====");
+        emp1.salaryInfo();
+        emp2.salaryInfo();
+        emp3.salaryInfo();
+
+        System.out.println("===== 승진 대상자 확인 =====");
+        emp1.checkPromotion();
+        emp2.checkPromotion();
+        emp3.checkPromotion();
+
+        System.out.println("===== 퇴직금 계산 =====");
+        emp1.retirement();
+        emp2.retirement();
+        emp3.retirement();
     }
 }

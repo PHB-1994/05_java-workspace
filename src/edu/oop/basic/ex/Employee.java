@@ -103,7 +103,7 @@ public class Employee {
      * 연봉 정보 출력
      */
     public void salaryInfo(){
-        System.out.printf("%s님의 연봉 : %,d만원",getName(),getSalary());
+        System.out.printf("%s님의 연봉 : %,d만원 \n",getName(),getSalary());
     }
 
     /**
