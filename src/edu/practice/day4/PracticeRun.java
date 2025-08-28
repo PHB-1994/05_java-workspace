@@ -24,6 +24,16 @@ public class PracticeRun {
          * 문제 2 : 도서관 도서 관리 클래스
          */
         Book b = new Book("자바의 정석", "남궁성","978-89-7914-726-9");
-
+        System.out.println();
+        System.out.println("===== 도서 관리 시스템 =====");
+        b.displayInfo();
+        System.out.println();
+        b.borrowBook("김자바");
+        System.out.println();
+        b.borrowBook("박코딩");
+        System.out.println();
+        b.returnBook("김자바");
     }
+
+
 }

@@ -61,16 +61,36 @@ public class Book {
         return isAvailable;
     }
 
+    public void displayInfo() {
+        System.out.println("도서명 : " + getTitle());
+        System.out.println("저자 : " + getAuthor());
+        System.out.println("ISBN : " + getIsbn());
+        System.out.println("상태 : " + isPass());
+    }
+
     public void borrowBook(String name){
-        System.out.println(name + "님이 " + getTitle() + "대출 시도");
+        System.out.println(name + "님이 '" + getTitle() + "' 대출 시도");
         if(isAvailable){
             System.out.println("결과 : 대출 성공");
+            isAvailable = false;
         }else {
             System.out.println("결과 : 이미 대출 중");
         }
     }
 
     public void returnBook(String name){
+        System.out.println(name + "님이 '" + getTitle() + "' 반납");
+        if(!isAvailable){
+            System.out.println("결과 : 반납 완료");
+            isAvailable = true;
+        }
+    }
 
+    public String isPass() {
+        if(isAvailable){
+            return "대출가능";
+        }else {
+            return "대출불가능";
+        }
     }
 }
