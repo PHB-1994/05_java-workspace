@@ -238,7 +238,6 @@ public class Practice {
             count++;
             System.out.printf("시도 %d/%d : ", count, Max_TRIES);
             int input = sc.nextInt();
-            // 카운터가 맞는지 모르겠음
 
             if (answer == input) {
                 System.out.printf("정답입니다! 정답: %d, 시도횟수 : %d회", answer, count);
@@ -329,18 +328,19 @@ public class Practice {
          * 최저점: 78점
          */
 
-        System.out.println("5명의 성적을 입력하세요.");
+        
 
         int[] scores = new int[5];
 
         int total = 0;
         double average = 0;
-        int max = 0;
-        int min = 0;
+//        int max, min;
+        int max = scores[0];
+        int min = scores[0];
 
-        // int max = Math.max(scores[0], scores[1]);
-        // int min = Math.min(scores[0], scores[1]);
 
+        System.out.println("5명의 성적을 입력하세요.");
+        // 성적 입력 받기
         for (int i = 0; i < scores.length; i++) {
             System.out.printf("%d번 학생 : ", i + 1);
             int score = sc.nextInt();
@@ -385,15 +385,32 @@ public class Practice {
         System.out.print("배열 크기를 입력하세요 (1 ~ 10) : ");
         int size = sc.nextInt();
 
+        // 배열 크기 제한
+        if(size < 1 || size > 10){
+            System.out.println("1 ~ 10 사이의 숫자를 입력하세요.");
+            return;
+        }
+
         int[] original = new int[size];
         int[] reversed = new int[size];
-        for (int i = 0; i < size; i++) {
-            System.out.printf("%d번째 숫자 : ", i + 1);
-            int input = sc.nextInt();
 
-            original[i] = input;
-            reversed[size - 1 - i] = input;
+        // 원본 배열 입력받기
+        for(int i = 0; i < size; i++){
+            System.out.print((i+1) + "번째 숫자 입력 : ");
+            original[i] = sc.nextInt();
         }
+
+        // 배열 뒤집기
+        for(int i=0; i < size; i++){
+            reversed[i] = original[size - 1 - i];
+        }
+//        for (int i = 0; i < size; i++) {
+//            System.out.printf("%d번째 숫자 : ", i + 1);
+//            int input = sc.nextInt();
+//
+//            original[i] = input;
+//            reversed[size - 1 - i] = input;
+//        }
         System.out.println("원본 배열 : " + Arrays.toString(original));
         System.out.println("뒤집힌 배열 : " + Arrays.toString(reversed));
 
@@ -414,37 +431,61 @@ public class Practice {
          * 프로그램을 종료합니다.
          */
 
-        int[] lotto = new int[5];
+        System.out.println("=== 간단 로또 번호 생성기 ===");
 
-        boolean isDuplicate = false;
+        int[] lotto = new int[6];
+        // 6개의 중복되지 않은 번호 생성
+        for(int i = 0; i < lotto.length; i++){
+            while(true) { // 중복 검사 확인
+                int randomNum = (int)(Math.random() * 45) + 1;
+                boolean isDuplicated = false;
+                for(int j = 0; j < i; j++){
+                    if(randomNum == lotto[j]){
+                        isDuplicated = true; // 랜덤번호가 기존 번호들이랑 동일하다면
+                        break; // 중복을 찾았으니 for문 탈출
+                    }
+                }
+
+                // 중복되지 않았다면 번호를 배열에 저장
+                if(!isDuplicated){
+                    lotto[i] = randomNum;
+                    break;
+                }
+
+            }
+        }
+
+        // 생성된 번호 출력
+        System.out.println("생성된 번호 : " + Arrays.toString(lotto));
+        System.out.println("프로그램을 종료합니다.");
+
 
         String playAgain;
 
-        System.out.println("=== 간단한 로또 번호 생성기 ===");
+//        boolean isDuplicate = false;
 
-        while (true) {
-            System.out.print("생성된 번호 : ");
-            for (int i = 0; i < lotto.length; i++) {
-//                isDuplicate = false;
-                int random = (int) (Math.random() * 20) + 1;
-                lotto[i] = random;
-
-                for (int j = 0; j < i; j++) {
-                    if(lotto[i] == lotto[j]){
-//                        isDuplicate = true;
-                        i--;
-                    }
-                }
-            }
-                System.out.print(Arrays.toString(lotto));
-
-            System.out.print("\n다시 생성하시겠습니까? (y/n) : ");
-            String input = sc.nextLine();
-            if (input.equals("n")) {
-                break;
-
-            }
-
-        }
+//        while (true) {
+//            System.out.print("생성된 번호 : ");
+//            for (int i = 0; i < lotto.length; i++) {
+//                int random = (int) (Math.random() * 20) + 1;
+//                lotto[i] = random;
+//
+//                for (int j = 0; j < i; j++) {
+//                    if(lotto[i] == lotto[j]){
+//                        i--;
+//                    }
+//                }
+//            }
+//                System.out.print(Arrays.toString(lotto));
+//
+//            System.out.print("\n다시 생성하시겠습니까? (y/n) : ");
+//            String input = sc.nextLine();
+//            if (input.equals("n")) {
+//                break;
+//
+//            }
+//
+//        }
     }
 }
+
