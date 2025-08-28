@@ -1,6 +1,7 @@
 package edu.oop.field.pack3.ex;
 
 public class GuestHouse {
+
     /* 필드 */
     // static 붙은 필드는 프로그램 실행 시
     // static 메모리 영역에 할당된다.
@@ -103,9 +104,5 @@ public class GuestHouse {
         System.out.println("방문자명 : " + getGuestName());
         System.out.println("체크인날짜 : " + getCheckInDate());
         System.out.println("객실번호 : " + getRoomNumber() + "호");
-    }
-
-    public void userInfo(){
-
     }
 }
