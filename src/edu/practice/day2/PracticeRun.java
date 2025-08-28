@@ -23,8 +23,9 @@ public class PracticeRun {
          * 공백 마침표는 제외하고 셋 숫자값
          */
 
-        practice.method8();
+        // practice.method8();
         // practice.method9();
-        // practice.method10();
+        practice.method10();
     }
 }
+
