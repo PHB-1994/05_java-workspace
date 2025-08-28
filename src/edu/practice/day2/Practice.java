@@ -388,22 +388,15 @@ public class Practice {
         while (true) {
             System.out.print("생성된 번호 : ");
             for (int i = 0; i < lotto.length; i++) {
+//                isDuplicate = false;
                 int random = (int) (Math.random() * 20) + 1;
+                lotto[i] = random;
 
-//                System.out.println(lotto[i] + " ");
-
-                for (int j = 0; j < lotto.length; j++) {
-                    if (i == 0) {
-                        lotto[i] = random;
-                    } else if (lotto[j] == lotto[i]) {
-                        isDuplicate = true;
+                for (int j = 0; j < i; j++) {
+                    if(lotto[i] == lotto[j]){
+//                        isDuplicate = true;
                         i--;
-                    }else {
-                        isDuplicate = false;
-                        lotto[i] = random;
-                        break;
                     }
-//                    System.out.println("random 값 : " + random);
                 }
             }
                 System.out.print(Arrays.toString(lotto));
