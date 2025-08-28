@@ -37,7 +37,25 @@ public class GuestHouse {
         totalCount = 0; // 시스템 시작 시 방문자 수 초기화
         System.out.println("===" + GUESTHOUSE_NAME + " 시스템 시작 ===");
     }
-    
+
+    /**
+     * 초기화 시
+     * 1순위로 초기화 : static 변수들로 되어있는 변수이름이 먼저 초기화
+     * public static final String GUESTHOUSE_NAME = "서울 게스트 하우스";
+     *
+     * 2순위로 초기화 : static {} 블록이 나중에 실행
+     * static {
+     *     totalCount = 0; // 시스템 시작 시 방문자 수 초기화
+     *     System.out.println("===" + GUESTHOUSE_NAME + " 시스템 시작 ===");
+     * }
+     *
+     *  {} 블록 형태의 경우
+     *      여러줄의 실행문을 포함해서 작성
+     *      복잡한 로직, 시스템 메세지 출력을 포함해야 할 경우 사용
+     *      복잡한 로직이 필요하지 않고 단순 값 할당만 진행할 경우에는
+     *      {} 형태를 작성할 필요가 없음
+     */
+
     // 메서드 기본 생성자 ::: 작성하지 않아도 자동으로 생성 
     // 하지만 매개변수가 존재하는 필수 생성자를 작성할 경우에는
     // 필히 기본 생성자 또한 작성해야함
@@ -85,6 +103,9 @@ public class GuestHouse {
         System.out.println("방문자명 : " + getGuestName());
         System.out.println("체크인날짜 : " + getCheckInDate());
         System.out.println("객실번호 : " + getRoomNumber() + "호");
+    }
+
+    public void userInfo(){
 
     }
 }
