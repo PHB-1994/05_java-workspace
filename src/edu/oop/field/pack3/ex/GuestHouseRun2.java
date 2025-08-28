@@ -14,6 +14,7 @@ public class GuestHouseRun2 {
          */
 
         Scanner sc = new Scanner(System.in);
+
         while(true){
             System.out.print("----- 고객 정보 입력 -----");
             System.out.println("0번 입력 시 고객 정보 입력을 종료합니다.");

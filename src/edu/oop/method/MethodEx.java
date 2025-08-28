@@ -50,8 +50,7 @@ public class MethodEx {
 
     // 4. boolean 메서드 (참/거짓 판단)
     public boolean isPopularCafe(){
-        int totalPrice = 100;
-
+        int totalOrders = 100;
         boolean result = totalOrders >= 50;
         return result;
         // return totalOrders >= 50;
