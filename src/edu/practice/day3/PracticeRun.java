@@ -4,7 +4,8 @@ public class PracticeRun {
     public static void main(String[] args) {
         Practice1 p1 = new Practice1();
         Practice2 p2 = new Practice2();
-        Practice3 p3 = new Practice3();
+        Practice3 p31 = new Practice3(100000,"1234");
+        Practice3 p32 = new Practice3(0,"5678");
         Practice4 p4 = new Practice4();
         Practice5 p5 = new Practice5();
 
@@ -25,8 +26,26 @@ public class PracticeRun {
         p2.method2();
 
         System.out.println("\n=== 문제 3: 은행계좌 업그레이드 ===");
+        p31.setAccountHolder("홍길동");
+        p32.setAccountHolder("김철수");
+        p31.setAccountNumber("123-456-789");
+        p31.setTransactionCount(0);
 
-        p3.method3();
+        System.out.println("=== " + p31.getAccountHolder() + "님 계좌 정보 ===");
+        System.out.println("계좌번호: " + p31.getAccountNumber());
+        System.out.println("잔액: " + p31.getBalance() + "원");
+        System.out.println("총 거래 횟수: " + p31.getTransactionCount() + "회");
+        p31.withdraw("5678",50000);
+        p31.withdraw("1234",150000);
+        p31.deposit(50000);
+        p32.deposit(30000);
+        p31.transfer1(20000,p31.getAccountHolder(), p32.getAccountHolder());
+        p32.transfer2(20000);
+        System.out.println(p31.getAccountHolder() + "님 현재 잔액 : " + p31.getBalance() + "원");
+        System.out.println(p32.getAccountHolder() + "님 현재 잔액 : " + p32.getBalance() + "원");
+        System.out.println("===" + p31.getAccountHolder() + "님 총 거래 횟수 ===");
+        p31.transactionCount();
+//        p31.method3();
 
         System.out.println("\n=== 문제 4: 학생 성적 관리 시스템 ===");
         // p4.method4();
