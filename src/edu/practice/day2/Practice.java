@@ -29,6 +29,7 @@ public class Practice {
 
         int max = Math.max(input1, input2);
         int min = Math.min(input1, input2);
+        // Math.max(input1, input2), Math.min(input1, input2)
 
         System.out.printf("%s부터 %s까지의 짝수\n", min, max);
 
@@ -57,7 +58,9 @@ public class Practice {
 
         System.out.print("높이를 입력하세요 : ");
         int height = sc.nextInt();
+        System.out.println(); // int 남은 버퍼 처리
 
+        // 높이만큼 별의 개수를 출력
         for (int i = 1; i <= height; i++) {
             for (int j = 1; j < i; j++) {
                 System.out.print("*");
@@ -105,9 +108,10 @@ public class Practice {
         System.out.print("숫자를 입력하세요 : ");
         int number = sc.nextInt();
 
-        // 소수를 판별해야 하는데 어찌...?
         boolean isPrime = true;
-
+        if(number < 2){
+            isPrime = false;
+        }
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
                 isPrime = false;
@@ -140,35 +144,68 @@ public class Practice {
          * 7 × 2 = 14
          * ...
          * 7 × 9 = 63
+         *
+         * """ """ <pre></pre> 같은 구문
          */
 
         while (true) {
-            System.out.println("===구구단 프로그램===");
-            System.out.println("1. 특정 단 출력");
-            System.out.println("2. 전체 구구단 출력");
-            System.out.println("0. 종료");
+//            System.out.println("===구구단 프로그램===");
+//            System.out.println("1. 특정 단 출력");
+//            System.out.println("2. 전체 구구단 출력");
+//            System.out.println("0. 종료");
+            System.out.println("""
+=== 구구단 프로그램 ===
+1. 특정 단 출력
+2. 전체 구구단 출력
+0. 종료
+                    """);
 
             System.out.print("선택 : ");
             int choice = sc.nextInt();
 
-            if (choice == 1) {
-                System.out.print("몇 단을 출력하시겠습니까? ");
-                int dan = sc.nextInt();
-
-                System.out.printf("\n[%d단]\n", dan);
-                for (int i = 1; i <= 9; i++) {
-                    System.out.printf("%d x %d = %2d\n", dan, i, dan * i);
-                }
-            } else if (choice == 2) {
-                for (int i = 1; i <= 9; i++) {
-                    System.out.printf("\n[%d단]\n", i);
-                    for (int j = 1; j <= 9; j++) {
-                        System.out.printf("%d x %d = %2d\n", i, j, i * j);
+            switch(choice){
+                case 1:
+                    System.out.print("몇 단을 출력하시겠습니까?");
+                    int dan = sc.nextInt();
+                    System.out.println("[" + dan + "]단");
+                    for(int i = 1; i <= 9; i++){
+                        System.out.printf("%d x %d = %2d\n", dan, i, dan * i);
                     }
-                }
-            } else if (choice == 0) {
-                break;
+                    break;
+                case 2:
+                    System.out.println("=== 전체 구구단 ===");
+                    for (int j = 1; j <= 9; j++){
+                        for(int i = 1; i <= 9; i++){
+                            System.out.println("[" + j + "]단");
+                            System.out.printf("%d x %d = %2d\n", j, i, j * i);
+                        }
+                    }
+                    break;
+                case 0:
+                    System.out.println("프로그램을 종료합니다.");
+                    return; // while 구문 탈출해서 기능 중지
+                default:
+                    System.out.println("잘못된 선택입니다. 다시 선택해주세요.");
             }
+
+//            if (choice == 1) {
+//                System.out.print("몇 단을 출력하시겠습니까? ");
+//                int dan = sc.nextInt();
+//
+//                System.out.printf("\n[%d단]\n", dan);
+//                for (int i = 1; i <= 9; i++) {
+//                    System.out.printf("%d x %d = %2d\n", dan, i, dan * i);
+//                }
+//            } else if (choice == 2) {
+//                for (int i = 1; i <= 9; i++) {
+//                    System.out.printf("\n[%d단]\n", i);
+//                    for (int j = 1; j <= 9; j++) {
+//                        System.out.printf("%d x %d = %2d\n", i, j, i * j);
+//                    }
+//                }
+//            } else if (choice == 0) {
+//                break;
+//            }
         }
 
     }

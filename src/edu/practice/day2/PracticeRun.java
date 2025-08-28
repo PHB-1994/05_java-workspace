@@ -10,7 +10,7 @@ public class PracticeRun {
         // practice.method2();
         // practice.method3();
         // practice.method4();
-        // practice.method5();
+        practice.method5();
         // practice.method6();
         // practice.method7();
         /** practice.method7(); 출력결과
@@ -25,7 +25,7 @@ public class PracticeRun {
 
         // practice.method8();
         // practice.method9();
-        practice.method10();
+        // practice.method10();
     }
 }
 
