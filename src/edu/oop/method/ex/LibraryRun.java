@@ -7,6 +7,6 @@ public class LibraryRun {
     public static void main(String[] args) {
         new LibraryService().displayMenu();
 
-        LibraryMember member1 = new LibraryMember("LIB001","김독서", "010-1111-2222",25);
+        // LibraryMember member1 = new LibraryMember("LIB001","김독서", "010-1111-2222",25);
     }
 }
