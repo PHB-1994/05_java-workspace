@@ -52,8 +52,9 @@ public class StudentService {
                         System.out.println("조회되는 학생의 정보가 존재하지 않습니다.");
                         System.out.println("학생 등록을 시작하겠습니다.");
                         // 학생 등록을 위한 메서드 호출
-                        std2 = createStudent(); /* ========================================= */
-                        studentInform(std2);
+                        std2 = createStudent(); // return 으로 가져올 아래 생성자 객체 대신 기능 명칭 작성
+                        // std2 = new Student(createName, createNumber, createGender);
+                        System.out.println(studentInform(std2)); // 등록이 잘 되었는지 학생 정보 확인
                     }
                     break;
 
@@ -82,10 +83,10 @@ public class StudentService {
 
                     if(select == 1) {
                         updateStudentName(std1); // 회원 정보 수정 진행
-                        studentInform(std1);     // 수정된 결과를 조회
+                        System.out.println(studentInform(std1));     // 수정된 결과를 조회
                     } else {
                         updateStudentName(std2); // 회원 정보 수정 진행
-                        studentInform(std2);     // 수정된 결과를 조회
+                        System.out.println(studentInform(std2));   // 수정된 결과를 조회
                     }
                     break;
 
@@ -97,11 +98,36 @@ public class StudentService {
                     select = sc.nextInt();
                     if(select == 1) {
                         updateJava(std1);
-                        studentInform(std1); // 실제 html 에서는 새로고침과 같은 기능을 사용
+                        System.out.println(studentInform(std1)); // 실제 html 에서는 새로고침과 같은 기능을 사용
                     }else{
                         updateJava(std2);
-                        studentInform(std2); // 실제 html 에서는 새로고침과 같은 기능을 사용
+                        System.out.println(studentInform(std2)); // 실제 html 에서는 새로고침과 같은 기능을 사용
                     }
+                    break;
+
+                case 5 : // 관리자페이지 - html 역량 tab
+                    System.out.println("html 역량을 수정하는 공간입니다.");
+
+                    // html 기준 search 검색하는 input 창 placeholder 로 검색어 입력 예시 작성되어 있을 것
+                    System.out.print("html 역량을 수정할 학생 선택 (1 = std1 / 2 = std2) : ");
+                    select = sc.nextInt();
+                    if(select == 1) {
+                        updatehtml(std1);
+                        System.out.println(studentInform(std1)); // 실제 html 에서는 새로고침과 같은 기능을 사용
+                    }else{
+                        updatehtml(std2);
+                        System.out.println(studentInform(std2)); // 실제 html 에서는 새로고침과 같은 기능을 사용
+                    }
+                    break;
+
+                case 6:
+                    // Java 역량 비교에 대한 결과 확인
+                    System.out.println(compareJava(std1, std2));
+                    break;
+
+                case 7:
+                    // Html 역량 비교에 대한 결과 확인
+                    System.out.println(compareHtml(std1, std2));
                     break;
 
                 case 0 :
@@ -115,20 +141,21 @@ public class StudentService {
     }
 
     /**
-     *
-     * @return
+     * 학생 정보를 입력 받아 생성된  Student 객체를 반환
+     * @return 생성된 Student 객체 주소
      */
     private Student createStudent(){
         System.out.print("이름 : ");
-        String createName = sc.next(); /*===========================================*/
+        String createName = sc.next();
         System.out.print("학번 : ");
         String createNumber = sc.next();
         System.out.print("성별(남/여) : ");
-        char createGender = sc.next().charAt(0); /*==================================*/
+        char createGender = sc.next().charAt(0);
         // sc.next().charAt(0);     sc.next() 로 입력 받은 문자열 중에서
         // 0 번째 인덱스 번째 문자 하나를 반환 받아 createGender 변수에 저장
 
         return new Student(createName, createNumber, createGender);
+        // Student std2 = new Student(createName, createNumber, createGender);
     }
 
 
@@ -150,7 +177,6 @@ public class StudentService {
                 특정학생.getName(),특정학생.getStudentNumber(), 특정학생.getGender());
         return a;
     }
-
 
 
     /**
@@ -205,6 +231,70 @@ public class StudentService {
     }
 
 
+    /**
+     * HTML 역량이 얼마나 증가 감소했는지 정수로 입력받고
+     * 학생의 HTML 역량을 관리자가 수정
+     * 수정된 HTML 역량은 최대값, 최소값의 범위를 넘어가지 못하게 if 문으로 설정
+     * @param student : std1 또는 std2 학생의 정보가 담겨있는 상자의 위치 가져오기
+     */
+    public void updatehtml(Student student){
+        System.out.print("증가 또는 감소한 HTML 의 역량을 입력하세요 : ");
+        int newHtml = sc.nextInt();
+        int result = student.getHtml() + newHtml;
 
+        while(result > Student.MAX_VALUE || result < Student.MIN_VALUE){
+            System.out.println("점수는" + Student.MIN_VALUE + " ~ " + Student.MAX_VALUE + " 사이만 가능합니다.");
+
+            System.out.println("현재 점수 : " + student.getJava() + " / 최종 결과 : " + result);
+
+            System.out.print("다시 입력하시겠습니까?");
+            newHtml = sc.nextInt();
+            result = student.getHtml() + newHtml;
+
+            if(newHtml == 000){
+                return;
+            }
+        }
+
+        student.setHtml(result);
+    }
+
+
+    /**
+     * 매개 변수로 전달 받은 두 student 의 Java 점수 비교하기
+     * @param student1
+     * @param student2
+     * @return 비교 결과 문자열로 확인
+     */
+    private String compareJava(Student student1, Student student2){
+
+        if(student1 == null || student2 == null){
+            return "등록된 학생의 정보가 조회되지 않습니다.";
+        }
+
+        // 두 학생의 점수 비교
+        if(student1.getJava() == student2.getJava())     return "학생의 점수가 같습니다.";
+        else if(student1.getJava() > student2.getJava()) return student1.getName() + "의 점수가 더 높습니다.";
+        else                                             return student2.getName() + "의 점수가 더 높습니다.";
+    }
+
+
+    /**
+     * 매개 변수로 전달 받은 두 student 의 Html 점수 비교하기
+     * @param student1
+     * @param student2
+     * @return 비교 결과 문자열로 확인
+     */
+    private String compareHtml(Student student1, Student student2){
+
+        if(student1 == null || student2 == null){
+            return "등록된 학생의 정보가 조회되지 않습니다.";
+        }
+
+        // 두 학생의 점수 비교
+        if(student1.getHtml() == student2.getHtml())     return "학생의 점수가 같습니다.";
+        else if(student1.getHtml() > student2.getHtml()) return student1.getName() + "의 점수가 더 높습니다.";
+        else                                             return student2.getName() + "의 점수가 더 높습니다.";
+    }
 }
 
