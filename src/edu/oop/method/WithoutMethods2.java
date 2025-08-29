@@ -32,22 +32,8 @@ public class WithoutMethods2 {
             int paymentAmount1 = totalAmount1 + 배송비계산(totalAmount1);
 
             // 주문 1 결제 영수증 출력
-            System.out.println("==================== 주문 영수증 ====================");
-            System.out.println("고객명: " + customer1Name);
-            System.out.println("연락처: " + customer1Phone);
-            System.out.println("배송지: " + customer1Address);
-            System.out.println("---------------------------------------------------");
-            System.out.println("주문 상품:");
-            System.out.println("1. " + product1_1 + " x " + quantity1_1 + "개 = " + subtotal1_1 + "원");
-            System.out.println("2. " + product1_2 + " x " + quantity1_2 + "개 = " + subtotal1_2 + "원");
-            System.out.println("3. " + product1_3 + " x " + quantity1_3 + "개 = " + subtotal1_3 + "원");
-            System.out.println("---------------------------------------------------");
-            System.out.println("상품 총액: " + totalAmount1 + "원");
-            System.out.println("할인 금액: -" + discountAmount1 + "원");
-            System.out.println("배송비: " + 배송비계산(totalAmount1) + "원");
-            System.out.println("최종 결제 금액: " + paymentAmount1 + "원");
-            System.out.println("===================================================");
-            System.out.println();
+            orderInfo(customer1Name,customer1Phone,customer1Address,product1_1,price1_1,quantity1_1,product1_2,price1_2,quantity1_2,
+                    product1_3,price1_3,quantity1_3,totalAmount1,discountAmount1,배송비계산(totalAmount1),paymentAmount1);
 
 
             // 주문 2 처리 (완전히 동일한 로직 반복)
@@ -80,22 +66,9 @@ public class WithoutMethods2 {
             int paymentAmount2 = totalAmount2 + 배송비계산(totalAmount2);
 
             // 주문 2 결제 영수증 출력 (동일한 형식)
-            System.out.println("==================== 주문 영수증 ====================");
-            System.out.println("고객명: " + customer2Name);
-            System.out.println("연락처: " + customer2Phone);
-            System.out.println("배송지: " + customer2Address);
-            System.out.println("---------------------------------------------------");
-            System.out.println("주문 상품:");
-            System.out.println("1. " + product2_1 + " x " + quantity2_1 + "개 = " + subtotal2_1 + "원");
-            System.out.println("2. " + product2_2 + " x " + quantity2_2 + "개 = " + subtotal2_2 + "원");
-            System.out.println("3. " + product2_3 + " x " + quantity2_3 + "개 = " + subtotal2_3 + "원");
-            System.out.println("---------------------------------------------------");
-            System.out.println("상품 총액: " + totalAmount2 + "원");
-            System.out.println("할인 금액: -" + discountAmount2 + "원");
-            System.out.println("배송비: " + 배송비계산(totalAmount2) + "원");
-            System.out.println("최종 결제 금액: " + paymentAmount2 + "원");
-            System.out.println("===================================================");
-            System.out.println();
+            orderInfo(customer2Name,customer2Phone,customer2Address,product2_1,price2_1,quantity2_1,product2_2,price2_2,quantity2_2,
+                    product2_3,price2_3,quantity2_3,totalAmount2,discountAmount2,배송비계산(totalAmount2),paymentAmount2);
+
 
 
             // 주문 3 처리 (또 다시 중복)
@@ -128,22 +101,9 @@ public class WithoutMethods2 {
             int paymentAmount3 = totalAmount3 + 배송비계산(totalAmount3);
 
             // 주문 3 결제 영수증 출력 (또 다시 동일한 형식)
-            System.out.println("==================== 주문 영수증 ====================");
-            System.out.println("고객명: " + customer3Name);
-            System.out.println("연락처: " + customer3Phone);
-            System.out.println("배송지: " + customer3Address);
-            System.out.println("---------------------------------------------------");
-            System.out.println("주문 상품:");
-            System.out.println("1. " + product3_1 + " x " + quantity3_1 + "개 = " + subtotal3_1 + "원");
-            System.out.println("2. " + product3_2 + " x " + quantity3_2 + "개 = " + subtotal3_2 + "원");
-            System.out.println("3. " + product3_3 + " x " + quantity3_3 + "개 = " + subtotal3_3 + "원");
-            System.out.println("---------------------------------------------------");
-            System.out.println("상품 총액: " + totalAmount3 + "원");
-            System.out.println("할인 금액: -" + discountAmount3 + "원");
-            System.out.println("배송비: " + 배송비계산(totalAmount3) + "원");
-            System.out.println("최종 결제 금액: " + paymentAmount3 + "원");
-            System.out.println("===================================================");
-            System.out.println();
+            orderInfo(customer3Name,customer3Phone,customer3Address,product3_1,price3_1,quantity3_1,product3_2,price3_2,quantity3_2,
+                    product3_3,price3_3,quantity3_3,totalAmount3,discountAmount3,배송비계산(totalAmount3),paymentAmount3);
+
 
 
             // 일일 매출 통계 계산
@@ -199,6 +159,29 @@ public class WithoutMethods2 {
             }
 
             return discountAmount; // 할인율 없음
+        }
+
+
+        public static void orderInfo(
+                String name, String number, String address, String product11, int product12, int product13, String product21, int product22, int product23
+                , String product31, int product32, int product33, int totalAmount, double discountAmount, int shippingFee, int paymentAmount){
+            // 결제 영수증 출력
+            System.out.println("==================== 주문 영수증 ====================");
+            System.out.println("고객명: " + name);
+            System.out.println("연락처: " + number);
+            System.out.println("배송지: " + address);
+            System.out.println("---------------------------------------------------");
+            System.out.println("주문 상품:");
+            System.out.println("1. " + product11 + " x " + product12 + "개 = " + product13 + "원");
+            System.out.println("2. " + product21 + " x " + product22 + "개 = " + product23 + "원");
+            System.out.println("3. " + product31 + " x " + product32 + "개 = " + product33 + "원");
+            System.out.println("---------------------------------------------------");
+            System.out.println("상품 총액: " + totalAmount + "원");
+            System.out.println("할인 금액: -" + discountAmount + "원");
+            System.out.println("배송비: " + shippingFee + "원");
+            System.out.println("최종 결제 금액: " + paymentAmount + "원");
+            System.out.println("===================================================");
+            System.out.println();
         }
 
         /*
