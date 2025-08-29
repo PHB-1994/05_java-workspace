@@ -71,6 +71,21 @@ public class Car {
         return totalDistance;
     }
 
+    public void method5(){
+        carInfo();
+        startEngine();
+        accelerate(50);
+        drive(500);
+        carInfo();
+        refuel(32);
+        brake(10);
+        carInfo();
+        stopEngine();
+        startEngine();
+        accelerate(50);
+        drive(820);
+    }
+
     /**
      * 차 정보
      */
@@ -80,8 +95,9 @@ public class Car {
         System.out.println("모델 : " + getModel());
         System.out.println("연료량 : " + getFuel() + "L");
         System.out.println("속도 : " + getSpeed() + "km/h");
-        System.out.println("엔진상태 : " + isEngineOn());
+        System.out.println("엔진상태 : " + (isEngineOn()? "on" : "off"));
         System.out.println("총 주행거리 : " + getTotalDistance() + "km");
+        System.out.println();
     }
 
     /**
@@ -89,13 +105,13 @@ public class Car {
      */
     public void startEngine(){
         if(isEngineOn){
-            System.out.println("이미 시동이 걸려있습니다.");
+            System.out.println("이미 시동이 걸려있습니다.\n");
         }else {
-            System.out.println(getModel() + " 엔진이 시동되었습니다.");
+            System.out.println(getModel() + " 엔진이 시동되었습니다.\n");
             isEngineOn = true;
         }
         if(fuel == 0){
-            System.out.println("연료가 부족하여 시동을 걸 수 없습니다.");
+            System.out.println("연료가 부족하여 시동을 걸 수 없습니다.\n");
             stopEngine();
         }
     }
@@ -104,7 +120,7 @@ public class Car {
      * 엔진 정지
      */
     public void stopEngine(){
-        System.out.println(getModel() + " 엔진이 정지되었습니다.");
+        System.out.println(getModel() + " 엔진이 정지되었습니다.\n");
         isEngineOn = false;
     }
 
@@ -114,13 +130,13 @@ public class Car {
      */
     public void accelerate(int speedUp){
         if(!isEngineOn){
-            System.out.println("엔진이 꺼져있어 가속할 수 없습니다.");
+            System.out.println("엔진이 꺼져있어 가속할 수 없습니다.\n");
         }
 
         if(fuel == 0){
-            System.out.println("연료가 없어 가속할 수 없습니다.");
+            System.out.println("연료가 없어 가속할 수 없습니다.\n");
         }else {
-            System.out.println(speedUp + "km/h로 가속했습니다. 현재 속도: " + speedUp + "km/h");
+            System.out.println(speedUp + "km/h로 가속했습니다. 현재 속도: " + speedUp + "km/h\n");
             speed += speedUp;
         }
     }
@@ -131,7 +147,7 @@ public class Car {
      */
     public void brake(int speedDown){
         speed -= speedDown;
-        System.out.println(speedDown + "km/h로 감속했습니다. 현재 속도: " + speed + "km/h");
+        System.out.println(speedDown + "km/h로 감속했습니다. 현재 속도: " + speed + "km/h\n");
     }
 
     /**
@@ -140,7 +156,7 @@ public class Car {
      */
     public void refuel(int amount){
         fuel += amount;
-        System.out.println(amount + "L 주유했습니다. 현재 연료량: " + fuel + "L");
+        System.out.println(amount + "L 주유했습니다. 현재 연료량: " + fuel + "L\n");
     }
 
     /**
@@ -150,16 +166,16 @@ public class Car {
     public void drive(int distance){
         int fuelNeeded = distance / 10; // 10km당 1L 소모
         if (fuel < fuelNeeded) {
-            System.out.println("연료가 부족하여 " + distance + "km를 주행할 수 없습니다.");
+            System.out.println("연료가 부족하여 " + distance + "km를 주행할 수 없습니다.\n");
             return;
         }else {
-            System.out.println(distance + "km 주행했습니다. 연료 " + fuelNeeded + "L 소모되었습니다.");
+            System.out.println(distance + "km 주행했습니다. 연료 " + fuelNeeded + "L 소모되었습니다.\n");
             totalDistance += distance;
             fuel -= fuelNeeded;
         }
 
         if(fuel == 0){
-            System.out.println("연료가 모두 소모되었습니다. 엔진을 정지합니다.");
+            System.out.println("연료가 모두 소모되었습니다. 엔진을 정지합니다.\n");
             isEngineOn = false;
         }
     }
