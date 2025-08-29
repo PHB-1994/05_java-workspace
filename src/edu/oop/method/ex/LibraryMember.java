@@ -21,4 +21,77 @@ public class LibraryMember {
     private String phoneNumber;
     private int borrowedBooks;
     private int age;
+
+    // 인스턴스 초기화 블록
+    {
+        membershipId = "TEMP001";
+        memberName = "임시회원";
+        phoneNumber = "010-0000-0000";
+        borrowedBooks = 0;
+        age = 14;
+    }
+
+    // static 초기화 블록
+    static {
+        totalMemberCount = 0;
+        currentVisitorCount = 0;
+        System.out.println("=== " + LIBRARY_NAME + " 시스템 초기화 완료 ===");
+        System.out.println("운영시간: " + OPENING_HOURS);
+    }
+
+    // 기본 생성자
+    public LibraryMember() {
+    }
+
+    // 필수 생성자
+    // 한 번에 작성해서 넣어주는 묶음 setter 같은 역할을 함
+    // 데이터 저장 패키지
+    public LibraryMember(String membershipId, String memberName, String phoneNumber, int age) {
+        this.membershipId = membershipId;
+        this.memberName = memberName;
+        this.phoneNumber = phoneNumber;
+        this.age = age;
+    }
+    
+    // setter
+    public void setMembershipId(String membershipId) {
+        this.membershipId = membershipId;
+    }
+
+    public void setMemberName(String memberName) {
+        this.memberName = memberName;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setBorrowedBooks(int borrowedBooks) {
+        this.borrowedBooks = borrowedBooks;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    // getter
+    public String getMembershipId() {
+        return membershipId;
+    }
+
+    public String getMemberName() {
+        return memberName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public int getBorrowedBooks() {
+        return borrowedBooks;
+    }
+
+    public int getAge() {
+        return age;
+    }
 }
