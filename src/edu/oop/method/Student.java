@@ -5,6 +5,7 @@ package edu.oop.method;
  */
 public class Student {
 
+
     // 속성 필드 변수들
     public static String schoolName = "더조은대학교";
 
