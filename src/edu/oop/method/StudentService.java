@@ -87,10 +87,11 @@ public class StudentService {
 
     private Student createStudent(){
         System.out.print("이름 : ");
-
+        String createName = sc.next();
         System.out.print("학번 : ");
-
+        String createNumber = sc.next();
         System.out.print("성별(남/여) : ");
+        char createGender = sc.next().charAt(0);
         // sc.next().charAt(0);     sc.next() 로 입력 받은 문자열 중에서
         // 0 번째 인덱스 번째 문자 하나를 반환 받아 createGender 변수에 저장
 
