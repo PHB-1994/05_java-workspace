@@ -25,8 +25,8 @@ public class LibraryService {
 4. 도서 대출
 5. 도서 반납
 6. 도서관 입장/퇴장
-7. HTML 역량 비교하기
-0. 도서관 통계 확인
+7. 도서관 통계 확인
+0. 프로그램 종료
                 """);
 
             System.out.print("메뉴 선택 : ");
@@ -55,7 +55,7 @@ public class LibraryService {
                     } else if(select == 1) memberInform(m1);
                     // 1개의 인수가 필요하지만 0이(가) 발견되었습니다
                     // () 내부에 1개 이상의 매개변수를 넣어야하는데 () 내부가 빈 공간이다. 기능 규칙에 맞춰서 넣어라
-                    else if(select == 2) memberInform(m2); // m2 값을 활용해서 넣어줘야함
+                    else if(select == 2) memberInform(m2); // m2 에 값을 대입하는 것이 아니라 m2를 활용해서 정보 출력
                     else                 memberInform(m3);
                     break;
 
@@ -102,12 +102,30 @@ public class LibraryService {
                     System.out.println("1=입장 / 2=퇴장");
                     System.out.print("선택: ");
                     // enterLibrary() 또는 exitLibrary() 메서드 호출
+                    select = sc.nextInt();
+                    if(select < 1 || select > 2){
+                        System.out.println("잘못된 번호입니다. 1 ~ 3 중 선택하세요.");
+                        return;
+                    }else if(select == 1) enterLibrary();
+                    else exitLibrary();
+
                     break;
 
                 case 7: // 도서관 통계 확인
                     System.out.println("=== 도서관 운영 통계 ===");
                     // static 변수들과 상수들 출력
+                    System.out.println("전체 회원 수 : " + LibraryMember.totalMemberCount + "명");
+                    System.out.println("현재 방문자 수 : " + LibraryMember.currentVisitorCount + "명");
+                    System.out.println("도서관 이름 : " + LibraryMember.LIBRARY_NAME);
+                    System.out.println("도서관 운영시간 : " + LibraryMember.OPENING_HOURS);
+                    System.out.println("최대 대출 권수 : " + LibraryMember.MAX_BORROW_BOOKS + "권");
+                    System.out.println("최소 가입 연령 : " + LibraryMember.MIN_AGE_LIMIT + "세");
                     break;
+                case 0:
+                    System.out.println("프로그램을 종료합니다.");
+                    return;
+                default:
+                    System.out.println("잘못된 번호를 선택하셨습니다.");
             }
         }
     }
@@ -128,8 +146,13 @@ public class LibraryService {
         String newPhoneNumber = sc.next();
         System.out.print("멤버십 나이를 입력하세요 : ");
         int newAge = sc.nextInt();
-
-        LibraryMember.totalMemberCount++;
+        if(newAge < LibraryMember.MIN_AGE_LIMIT){
+            System.out.print(LibraryMember.MIN_AGE_LIMIT + "이하이므로 가입할 수 없습니다.");
+            return null; // private 옆에 접근 제한자와 기능 명칭 사이가 void 아닌데 돌려보내야 할 때
+                         // 사용하는 트릭
+                         // 반환의 값을 무조건 작성해야 하기 때문에 null 로 처리
+        }
+        LibraryMember.totalMemberCount++; // 회원수 증가
         return new LibraryMember(newId, newName, newPhoneNumber, newAge);
     }
 
@@ -184,6 +207,7 @@ public class LibraryService {
 
     }
 
+
     /**
      * 도서 반납
      * @param member m1, m2, m3 가 들어올 위치
@@ -208,19 +232,26 @@ public class LibraryService {
 
     }
 
+
     /**
-     * 도서관 입장 (현재 방문자 수 +1)
+     * 도서관 입장 기능
      */
-    public void enterLibrary(){
-
+    private void enterLibrary(){
+        System.out.print("입장할 고객의 정보를 작성하세요 : ");
+        String customerName = sc.next();
+        LibraryMember.currentVisitorCount++;
+        System.out.println(customerName + " 님이 도서관에 입장하셨습니다.");
     }
 
-    public void exitLibrary(){
+
+    /**
+     * 도서관 퇴장 기능
+     */
+    private void exitLibrary(){
+        System.out.print("퇴장할 고객의 정보를 작성하세요 : ");
+        String customerName = sc.next();
+        LibraryMember.currentVisitorCount--;
+        System.out.println(customerName + " 님이 도서관에 퇴장하셨습니다.");
     }
 
-    public void borrowBook(int bookCount){
-    }
-
-    public void returnBook(int bookCount){
-    }
 }
