@@ -14,8 +14,8 @@ public class AnimalInheritanceRun {
         // Dog 객체를 기본 생성자로 생성하고 setter로 다음 정보를 설정하세요.
         // 이름: "멍멍이", 나이: 3, 색깔: "갈색", 품종: "골든리트리버"
 
-        // 여기에 setter 메소드들을 사용하여 정보 설정
         Dog dog1 = new Dog();
+        // 여기에 setter 메소드들을 사용하여 정보 설정
         dog1.setName("멍멍이");
         dog1.setAge(3);
         dog1.setColor("갈색");
@@ -25,8 +25,8 @@ public class AnimalInheritanceRun {
         // Cat 객체를 매개변수 생성자로 생성하세요.
         // 이름: "야옹이", 나이: 2, 색깔: "흰색", 실내묘: true
 
-        Cat cat1 = new Cat("야옹이",2,"흰색",true);
         // 여기에 코드 작성
+        Cat cat1 = new Cat("야옹이",2,"흰색",true);
 
 
         // ============== 문제 3: 다양한 생성자 활용 ==============
@@ -34,9 +34,9 @@ public class AnimalInheritanceRun {
         // bird1: 3개 매개변수 생성자 사용 ("짹짹이", 1, "노란색")
         // bird2: 4개 매개변수 생성자 사용 ("파랑이", 2, "파란색", 25.5)
 
+        // 여기에 코드 작성
         Bird bird1 = new Bird("짹짹이",1,"노란색");
         Bird bird2 = new Bird("파랑이", 2,"파란색",25.5);
-        // 여기에 코드 작성
 
 
         // ============== 문제 4: 동물 정보 출력 ==============

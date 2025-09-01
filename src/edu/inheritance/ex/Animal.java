@@ -35,7 +35,7 @@ public class Animal {
 
     // 개발자가 필요로 하는 기타 메서드들
     public void showInfo(){
-        System.out.println(" === 동물 정보 === ");
+        System.out.println(" ===== 정보 ===== ");
         System.out.println("이름 : " + getName());
         System.out.println("나이 : " + getAge());
         System.out.println("색깔 : " + getColor());

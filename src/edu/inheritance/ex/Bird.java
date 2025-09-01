@@ -43,4 +43,13 @@ class Bird extends Animal{
     public void buildNest(){
         System.out.println(getName() + "이(가) 둥지를 만듭니다!");
     }
+
+    public void showInfo(){
+        System.out.println(" ===== 정보 ===== ");
+        System.out.println("이름 : " + getName());
+        System.out.println("나이 : " + getAge());
+        System.out.println("색상 : " + getColor());
+        System.out.println("날개 : " + getWingspan());
+    }
+
 }
