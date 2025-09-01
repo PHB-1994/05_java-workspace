@@ -42,20 +42,20 @@ public class Animal {
     }
 
     public void eat(){
-        System.out.println(getName() + "은 12시에 밥을 먹습니다.");
+        System.out.println(getName() + "이(가) 음식을 먹고 있습니다.");
     }
 
     public void sleep(){
-        System.out.println(getName() + "은 10시에 잠을 잡니다.");
+        System.out.println(getName() + "이(가) 잠을 자고 있습니다.");
 
     }
 
-
-    public void makeSound(){
-
+    public void makeSound() {
+        System.out.println(getName() + "이(가) 웁니다.");
     }
 
-    public void move(){
-
+    public void move() {
+        System.out.println(getName() + "이(가) 다닙니다.");
     }
+
 }

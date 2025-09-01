@@ -76,6 +76,7 @@ public class AnimalInheritanceRun {
         dog1.makeSound();
         cat1.makeSound();
         bird1.makeSound();
+        bird2.makeSound();
 
 
         System.out.println("\n=== 동물들의 이동 ===");
@@ -83,6 +84,7 @@ public class AnimalInheritanceRun {
         dog1.move();
         cat1.move();
         bird1.move();
+        bird2.move();
 
 
         // ============== 문제 7: 각 동물의 고유 메소드 실행 ==============
@@ -92,6 +94,14 @@ public class AnimalInheritanceRun {
 
         System.out.println("\n=== 동물별 특별한 행동 ===");
         // 여기에 코드 작성
+        dog1.wagTail();
+        dog1.fetch();
+        cat1.purr();
+        cat1.scratch();
+        bird1.fly();
+        bird1.buildNest();
+        bird2.fly();
+        bird2.buildNest(); // build = 짓다, nest = 둥지
 
 
         // ============== 문제 8: 상속 관계 확인 ==============
@@ -107,6 +117,9 @@ public class AnimalInheritanceRun {
 
         System.out.println("\n=== 정보 수정 후 ===");
         // 여기에 코드 작성
+        dog1.setAge(5);
+        dog1.setBreed("시바견");
+        dog1.showInfo();
 
 
         // ============== 문제 10: Super 키워드 이해 ==============
@@ -119,6 +132,8 @@ public class AnimalInheritanceRun {
         Dog dog4 = new Dog("초코", 2, "초콜릿색", "푸들"); // 4개 매개변수 생성자
 
         // 각 강아지 정보 출력해보기
+        dog3.showInfo();
+        dog4.showInfo();
 
 
         // ============== 보너스 문제 1: 메소드 오버라이딩 vs 부모 메소드 ==============
