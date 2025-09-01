@@ -8,17 +8,19 @@ public class PracticeRun {
     public static void main(String[] args) {
         System.out.println("=== Java 6일차 상속 실습문제 실행 ===");
 
-        // 문제 1: NaverService 부모 클래스
-        // testPractice1();
+//         문제 1: NaverService 부모 클래스
+         testPractice1();
 
-        // 문제 2: NaverShopping 자식 클래스
-        // testPractice2();
+//         문제 2: NaverShopping 자식 클래스
+         testPractice2();
 
-        // 문제 3: NaverBlog 자식 클래스
-        // testPractice3();
+//         문제 3: NaverBlog 자식 클래스
+         testPractice3();
 
-        // 문제 4: NaverCafe 자식 클래스
-        // testPractice4();
+//         문제 4: NaverCafe 자식 클래스
+         testPractice4();
+
+         testAll();
     }
 
     public static void testPractice1() {
