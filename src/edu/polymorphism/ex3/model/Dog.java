@@ -45,26 +45,27 @@ public class Dog extends Animal {
     // 메서드
     @Override
     public void makeSound(){
-        super.makeSound();
         System.out.println(getName() + "이(가) 멍멍! 짖습니다.");
     }
 
     @Override
     public void move(){
-        super.move();
         System.out.println(getName() + "이(가) 네 다리로 달립니다!");
     }
 
+    @Override
     public void doSpecialAction(){
         if(isTrained){
-        System.out.println(getName() + "이(가) 앉기를 합니다!");
+            System.out.println(getName() + "이(가) 앉기를 합니다!");
         }else{
             System.out.println(getName() + "은(는) 아직 훈련이 안되었습니다.");
         }
     }
 
-
+    @Override
     public void eat(){
         System.out.println(getName() + "이(가) 사료를 먹습니다.");
     }
+
+
 }

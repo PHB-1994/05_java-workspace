@@ -45,27 +45,25 @@ public class Bird extends Animal {
     // 메서드
     @Override
     public void makeSound(){
-        super.makeSound();
         System.out.println(getName() + "이(가) 짹짹! 웁니다.");
     }
 
     @Override
     public void move(){
-        super.move();
-        if(canFly){
+        if(isCanFly()){
             System.out.println(getName() + "이(가) 날개를 펴고 날아갑니다!");
         }else {
             System.out.println(getName() + "이(가) 뛰어갑니다.");
         }
     }
 
-
+    @Override
     public void doSpecialAction(){
         System.out.println(getName() + "이(가) 깃털을 다듬습니다.");
         System.out.println("날개 길이: " + getWingSpan() + "cm");
     }
 
-
+    @Override
     public void eat(){
         System.out.println(getName() + "이(가) 씨앗을 먹습니다.");
     }

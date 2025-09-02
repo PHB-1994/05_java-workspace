@@ -60,5 +60,7 @@ public class Animal {
     // 상속을 받을 때 필수로 해야하는 기능에 대해 설정하는 방법
     public void makeSound(){}
     public void move(){}
+    public void doSpecialAction(){}
+    public void eat(){}
 }
 

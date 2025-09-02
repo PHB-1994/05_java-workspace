@@ -45,17 +45,15 @@ public class Cat extends Animal {
     // 메서드
     @Override
     public void makeSound(){
-        super.makeSound();
         System.out.println(getName() + "이(가) 야옹~ 웁니다.");
     }
 
     @Override
     public void move(){
-        super.move();
         System.out.println(getName() + "이(가) 조용히 걸어갑니다.");
     }
 
-
+    @Override
     public void doSpecialAction(){
         System.out.println(getName() + "이(가) 그루밍을 합니다.");
         if(livesLeft > 0){
@@ -63,7 +61,7 @@ public class Cat extends Animal {
         }
     }
 
-
+    @Override
     public void eat(){
         System.out.println(getName() + "이(가) 참치캔을 먹습니다.");
     }
