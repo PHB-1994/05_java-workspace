@@ -40,9 +40,25 @@ public class VehicleInheritanceRun {
         Bicycle bike1 = new Bicycle("트렉","FX",2023,"검정색");
         Bicycle bike2 = new Bicycle("자이언트","이스케이프",2023,"빨간색",21,true);
 
+        // 다형성을 활용해서 한 번에 출력
+        // 변수이름 : vehicles 배열형태
+        // 배열 출력 for 문 내 변수이름 : info
         // ============== 문제 4: 교통수단 정보 출력 ==============
         // 모든 교통수단의 기본 정보를 showInfo() 메소드로 출력하세요.
 
+        Vehicle[] vehicles = {car1,cycle1,bike1,bike2};
+
+        for(Vehicle info : vehicles){
+            info.showInfo();
+
+            System.out.println("=== 시동 걸기 ===");
+            info.start();
+
+            System.out.println("=== 정지하기 ===");
+            info.stop();
+        }
+
+        /*
         System.out.println("=== 교통수단 정보 ===");
         // 여기에 코드 작성
         car1.showInfo();
@@ -67,7 +83,7 @@ public class VehicleInheritanceRun {
         cycle1.stop();
         bike1.stop();
         bike2.stop();
-
+        */
         // ============== 문제 6: 오버라이딩된 메소드 테스트 ==============
         // 각 교통수단의 고유한 가속과 제동 방식을 확인하세요.
 
@@ -84,6 +100,7 @@ public class VehicleInheritanceRun {
         cycle1.brake();
         bike1.brake();
         bike2.brake();
+
 
         // ============== 문제 7: 각 교통수단의 고유 메소드 실행 ==============
         // 자동차: honk(), openTrunk()
