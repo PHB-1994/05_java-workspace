@@ -21,6 +21,8 @@ public class AnimalInheritanceRun {
         dog1.setColor("갈색");
         dog1.setBreed("골든리트리버");
 
+
+
         // ============== 문제 2: 매개변수 생성자 활용 ==============
         // Cat 객체를 매개변수 생성자로 생성하세요.
         // 이름: "야옹이", 나이: 2, 색깔: "흰색", 실내묘: true
@@ -38,6 +40,21 @@ public class AnimalInheritanceRun {
         Bird bird1 = new Bird("짹짹이",1,"노란색");
         Bird bird2 = new Bird("파랑이", 2,"파란색",25.5);
 
+
+        Animal[] animals = {dog1,cat1,bird1,bird2};
+        // Animal 클래스 내부에 작성된 필드, 기능만 호출 출력 가능
+        for(Animal animal:animals){
+            // 예를 들어 animals 에서 animal 내 0 번 째인 dog1 내부에 작성된 데이터가
+            // 전달되면 animal 에는 dog1 에 작성된 데이터를 기반으로 출력
+            // 출력될 때는 Animal 에 작성된 기능을 재사용하여 Dog1 에 맞게 수정된 기능 내용이 출력
+            // 하지만 Animal 에는 존재하지 않고, Dog1 에만 존재하는 기능은 출력할 수 없음
+            // 왜냐하면 animal 틀 이외의 기능이기 때문!
+            animal.showInfo();
+            animal.eat();
+            animal.sleep();
+            animal.makeSound();
+            animal.move();
+        }
 
         // ============== 문제 4: 동물 정보 출력 ==============
         // 모든 동물의 기본 정보를 showInfo() 메소드로 출력하세요.
