@@ -6,7 +6,7 @@ public class PracticeRun {
         Practice2 p2 = new Practice2();
         Practice3 p31 = new Practice3(100000,"1234");
         Practice3 p32 = new Practice3(0,"5678");
-//        Student p4 = new Student();
+        Student p4 = new Student();
 //        Car p5 = new Car();
 
         // 원하는 문제의 주석을 해제하고 실행하세요
@@ -50,11 +50,11 @@ public class PracticeRun {
         System.out.println("\n=== 문제 4: 학생 성적 관리 시스템 ===");
         // p4.method4();
 
-//        p4.setName("홍길동");
-//        p4.setStudentId(20241001);
-//        p4.inputScores();
-//        p4.getTotalScore();
-//        p4.printReport();
+        p4.setName("홍길동");
+        p4.setStudentId(20241001);
+        p4.inputScores();
+        p4.getTotalScore();
+        p4.printReport();
 
 
         System.out.println("\n=== 문제 5: 자동차 관리 시스템 ===");
