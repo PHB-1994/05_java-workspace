@@ -1,6 +1,6 @@
-package edu.polymorphism.pack1;
+package edu.polymorphism.pack1.model;
 
-public class Iphone extends SmartPhone{
+public class Iphone extends SmartPhone {
 
     // IOS 운영체제 버전
     private int iosVersion;

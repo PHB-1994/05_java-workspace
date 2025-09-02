@@ -1,6 +1,6 @@
-package edu.polymorphism.pack1;
+package edu.polymorphism.pack1.model;
 
-public class Galaxy extends SmartPhone{
+public class Galaxy extends SmartPhone {
 
     // 안드로이드 운영체제 버전
     private int androidVersion;
