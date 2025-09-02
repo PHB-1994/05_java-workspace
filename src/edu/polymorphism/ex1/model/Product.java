@@ -101,7 +101,6 @@ public class Product {
         System.out.println("가격: " + productPrice + "원");
         System.out.println("재고: " + productStock + "개");
         System.out.println("브랜드: " + productBrand);
-
     }
 
     public void updateProductStock(int quantity) {

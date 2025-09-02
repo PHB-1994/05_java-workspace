@@ -40,7 +40,6 @@ public class ProductService {
             // displayProductInfo() 기능 내부에 System 출력문으로 제품 정보를
             // 확인할 수 있도록 설정한 내용이 실행되는것
             product.displayProductInfo();
-//            System.out.println(product.displayProductInfo());     ------------------ 반환???
         }
     }
 }
