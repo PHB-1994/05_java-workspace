@@ -56,5 +56,14 @@ public abstract class Member {
     // 저(abstract)를 쓴다합니다!!
     public abstract double 할인율();
 
+    public abstract void 쿠폰과혜택();
+    // 일반Member = 보유하고 있는 쿠폰과 혜택이 존재하지 않습니다.
+    // 구독 서비스에 따라 쿠폰과 혜택을 받으실 수 있습니다.
 
+    // 프리미엄Member = 현재 ㅇㅇㅇ 쿠폰을 보유하고 있습니다.
+    // 아쉽게도 혜택은 존재하지 않습니다.
+    // VIP 로 구독 업그레이드하기
+
+    // VIPMember = 현재 ㅇㅇㅇ 쿠폰과 ㅇㅇㅇ 혜택 이용 가능합니다.
+    // 를 MemberService 에서 회원.쿠폰과혜택() 으로 확인하기
 }
