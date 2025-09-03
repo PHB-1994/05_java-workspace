@@ -6,8 +6,8 @@ public class MemberService {
     // method 기능명칭 내부에 new 클래스이름(); 을 작성해도 문제되진 않으나, 동일한 코드를 지속적으로 작성할 수 있기 때문
     // 개발자의 편의를 위해 class 아래에 작성
     일반Member 일반회원 = new 일반Member("M001","김일반","kim@email.com");
-    프리미엄Member 프리미엄회원 = new 프리미엄Member("P001","이프리미엄","lee@email.com","배송비할인쿠폰");
-    VIPMember VIP회원 = new VIPMember("V001","박브이아이피","park@email.com","배송비무료쿠폰","무료반품");
+    프리미엄Member 프리미엄회원 = new 프리미엄Member("P001","이프리미엄","lee@email.com","배송비 할인 쿠폰");
+    VIPMember VIP회원 = new VIPMember("V001","박브이아이피","park@email.com","배송비 무료 쿠폰","무료 반품");
 
 
     // 나중에 html 에서 작성해야할 내용 html 과 연결하기 전이기 때문에 Java 에서 임의적으로 System 출력문을 통해 진행
