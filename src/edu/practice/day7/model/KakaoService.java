@@ -11,15 +11,31 @@ public abstract class KakaoService {
     protected String userId;
     protected String userNickname;
     protected boolean isLoggedIn;
+    private String serviceType; // "TALK", "PAY", "MAP"
+
+
+
+
 
     // 생성자
     public KakaoService() {
+        this.isLoggedIn = false;
     }
-    public KakaoService(String serviceName, String userId, String userNickname, boolean isLoggedIn) {
+
+    public KakaoService(String serviceName, String userId, String userNickname, boolean isLoggedIn, String serviceType) {
         this.serviceName = serviceName;
         this.userId = userId;
         this.userNickname = userNickname;
         this.isLoggedIn = isLoggedIn;
+        this.serviceType = serviceType;
+    }
+
+    public KakaoService(String serviceName, String userId, String userNickname, String serviceType) {
+        this.serviceName = serviceName;
+        this.userId = userId;
+        this.userNickname = userNickname;
+        this.isLoggedIn = false;
+        this.serviceType = serviceType;
     }
 
     // getter setter
@@ -47,7 +63,9 @@ public abstract class KakaoService {
     public void setLoggedIn(boolean loggedIn) {
         isLoggedIn = loggedIn;
     }
-
+    public void setServiceType(String serviceType) {
+        this.serviceType = serviceType;
+    }
 
     // 메서드
     public void login() {
@@ -76,5 +94,7 @@ public abstract class KakaoService {
     public abstract String getServiceType();
     public abstract void performSpecialAction();
     public abstract void sendNotification(String message);
+
+
     public abstract void receiveNotification(String message);
 }

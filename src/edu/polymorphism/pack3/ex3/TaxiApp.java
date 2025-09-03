@@ -1,7 +1,6 @@
 package edu.polymorphism.pack3.ex3;
 
-// public 수정 해야하는가 ? public abstract 같이 쓰면 안되나...? 지정 안하면 상관 없지 않나? =============================================================================
-abstract class TaxiApp {
+public class TaxiApp {
     protected String appName;
     protected String userName;
     protected String currentLocation;

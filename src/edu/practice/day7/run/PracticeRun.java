@@ -1,9 +1,6 @@
 package edu.practice.day7.run;
 
-import edu.practice.day7.model.KakaoService;
-import edu.practice.day7.model.KakaoMap;
-import edu.practice.day7.model.KakaoPay;
-import edu.practice.day7.model.KakaoTalk;
+import edu.practice.day7.model.*; // model 폴더 안에 존재하는 class 문서들 사용하기
 
 /**
  * Java 7일차 상속, 추상화, 다형성 실습문제 실행 클래스
@@ -29,7 +26,7 @@ public class PracticeRun {
         System.out.println("\n=== KakaoTalk 테스트 ===");
 
         KakaoTalk kakaoTalk = new KakaoTalk("카카오톡", "user01", "채팅왕", 150, true);
-        // boolean 값을 서비스타입처럼 바꿀수가 있나...?
+        // boolean 값을 서비스타입처럼 바꿀수가 있나...? =============================================================
 
         kakaoTalk.showUserInfo();
         kakaoTalk.login();
@@ -162,7 +159,7 @@ public class PracticeRun {
             System.out.print("핵심 기능 실행: ");
             service.performSpecialAction();
 
-            // service.sendNotification(service.getServiceType() + " 서비스를 이용해주셔서 감사합니다!");
+             service.sendNotification(service.getServiceType() + " 서비스를 이용해주셔서 감사합니다!");
             service.stopService();
             service.logout();
             System.out.println();

@@ -6,20 +6,29 @@ public class KakaoPay extends KakaoService {
     private String bankAccount;
 
     // 생성자
-    public KakaoPay() {
+    public KakaoPay() { //기본 페이 세팅값
+        super();
+        this.balance = 0;
+        this.bankAccount = "";
     }
-    public KakaoPay(String serviceName, String userId, String userNickname, boolean isLoggedIn) {
-        super(serviceName, userId, userNickname, isLoggedIn);
+
+    public KakaoPay(String serviceName, String userId, String userNickname, int balance) {
+        super(serviceName, userId, userNickname,"PAY");
+        this.balance = balance;
+        this.bankAccount = "";
     }
+
     public KakaoPay(int balance, String bankAccount) {
         this.balance = balance;
         this.bankAccount = bankAccount;
     }
-    public KakaoPay(String serviceName, String userId, String userNickname, int balance, String bankAccount) {
-        super(serviceName, userId, userNickname, true);
+
+    public KakaoPay(String serviceName, String userId, String userNickname,int balance, String bankAccount) {
+        super(serviceName, userId, userNickname,"PAY");
         this.balance = balance;
         this.bankAccount = bankAccount;
     }
+
 
     // getter setter
     public int getBalacne() {
@@ -57,12 +66,14 @@ public class KakaoPay extends KakaoService {
 
     @Override
     public String getServiceType() {
-        return "";
+        return "payment";
     }
 
     @Override
     public void performSpecialAction() {
-
+        // 함수별 기능들을 모두 추가
+        System.out.println("카카오페이를 시작합니다. 간편결제 서비스가 준비되었습니다.");
+        System.out.println("현재 잔액 : " + getBalacne() + "원");
     }
 
     @Override
@@ -76,20 +87,7 @@ public class KakaoPay extends KakaoService {
     }
 
     // 고유 메서드
-    public void chargeBalance(int amount) {
-        if (!"PAY".equals(getServiceType())) {
-            System.out.println("카카오페이 서비스가 아닙니다!");
-            return;
-        }
-        balance += amount;
-        System.out.println(amount + "원 충전 완료. 잔액: " + balance + "원");
-    }
-
     public boolean processPayment(int amount) {
-        if (!"PAY".equals(getServiceType())) {
-            System.out.println("카카오페이 서비스가 아닙니다!");
-            return false;
-        }
         if (balance >= amount) {
             balance -= amount;
             System.out.println(amount + "원 결제 완료. 잔액: " + balance + "원");
@@ -100,28 +98,25 @@ public class KakaoPay extends KakaoService {
         }
     }
 
-    public void transferMoney(String recipient, int amount) {
-        if (!"PAY".equals(getServiceType())) {
-            System.out.println("카카오페이 서비스가 아닙니다!");
-            return;
-        }
-        if (processPayment(amount)) {
-            System.out.println(recipient + "에게 " + amount + "원 송금 완료");
-        }
-    }
-
-    public int getBalance() {
-        if (!"PAY".equals(getServiceType())) {
-            System.out.println("카카오페이 서비스가 아닙니다!");
-            return -1;
-        }
-        return balance;
-    }
-
     public void refund(int amount) {
-        System.out.println("카카오페이 서비스가 아닙니다!");
         balance += amount;
         System.out.println(amount + "원 환불 완료. 잔액: " + balance + "원");
     }
 
+    public int getBalance() {
+        return balance;
+    }
+
+    public void chargeBalance(int amount) {
+        balance += amount;
+        System.out.println(amount + "원 충전 완료. 잔액: " + balance + "원");
+    }
+
+
+
+    public void transferMoney(String recipient, int amount) {
+        if (processPayment(amount)) {
+            System.out.println(recipient + "에게 " + amount + "원 송금 완료");
+        }
+    }
 }

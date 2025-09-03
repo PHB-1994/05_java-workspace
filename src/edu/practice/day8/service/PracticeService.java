@@ -1,100 +1,93 @@
-//package edu.practice.day8;
-//
-///**
-// * Java 8일차 인터페이스, 다형성 실습문제 실행 클래스
-// * 각 문제의 주석을 해제하고 실행하세요
-// */
-//public class PracticeRun {
-//    public static void main(String[] args) {
-//        System.out.println("=== Java 8일차 인터페이스, 다형성 실습문제 실행 ===");
-//
-//
-//    }
-//
-//    public void videoPlayer() {
-//        System.out.println("\n=== VideoPlayer ===");
-//
-//        VideoPlayer youtube = new YouTube("자바 프로그래밍 강의");
-//        VideoPlayer tiktok = new TikTok("코딩마스터");
-//
-//        System.out.println("--- YouTube ---");
-//        youtube.upload();
-//        youtube.play();
-//        youtube.pause();
-//
-//        System.out.println("\n--- TikTok ---");
-//        tiktok.upload();
-//        tiktok.play();
-//        tiktok.pause();
-//    }
-//
-//    public void socialMedia() {
-//        System.out.println("\n=== SocialMedia  ===");
-//
-//        SocialMedia instagram = new Instagram("맛집 브런치");
-//        SocialMedia twitter = new Twitter("오늘 날씨가 정말 좋네요!");
-//
-//        System.out.println("--- Instagram 테스트 ---");
-//        instagram.post();
-//        instagram.like();
-//        instagram.share();
-//
-//        System.out.println("\n--- Twitter 테스트 ---");
-//        twitter.post();
-//        twitter.like();
-//        twitter.share();
-//    }
-//
-//    public void onlineShopping() {
-//        System.out.println("\n=== OnlineShopping 인터페이스 테스트 ===");
-//
-//        OnlineShopping amazon = new Amazon("프로그래밍 책");
-//        OnlineShopping coupang = new Coupang("무선 마우스");
-//
-//        System.out.println("--- Amazon 테스트 ---");
-//        amazon.browse();
-//        amazon.addToCart();
-//        amazon.purchase();
-//
-//        System.out.println("\n--- Coupang 테스트 ---");
-//        coupang.browse();
-//        coupang.addToCart();
-//        coupang.purchase();
-//    }
-//
-//    public void messenger() {
-//        System.out.println("\n=== Messenger ===");
-//
-//        Messenger kakao = new KakaoTalk("친구1");
-//        Messenger discord = new Discord("개발자방");
-//
-//        System.out.println("--- KakaoTalk 테스트 ---");
-//        kakao.sendMessage();
-//        kakao.receiveMessage();
-//        kakao.makeCall();
-//
-//        System.out.println("\n--- Discord 테스트 ---");
-//        discord.sendMessage();
-//        discord.receiveMessage();
-//        discord.makeCall();
-//    }
-//
-//    public void streamingService() {
-//        System.out.println("\n=== StreamingService  ===");
-//
-//        StreamingService netflix = new Netflix("스트레인저 씽즈");
-//        StreamingService disney = new Disney("토이 스토리");
-//
-//        System.out.println("--- Netflix 테스트 ---");
-//        netflix.login();
-//        netflix.watch();
-//        netflix.logout();
-//
-//        System.out.println("\n--- Disney+ 테스트 ---");
-//        disney.login();
-//        disney.watch();
-//        disney.logout();
-//    }
+package edu.practice.day8.service;
+
+
+import edu.practice.day8.model.*;
+
+public class PracticeService {
+    public void videoPlayer() {
+        System.out.println("\n=== VideoPlayer ===");
+
+        VideoPlayer youtube = new YouTube("자바 프로그래밍 강의");
+        VideoPlayer tiktok = new TikTok("코딩마스터");
+
+        System.out.println("--- YouTube ---");
+        youtube.upload();
+        youtube.play();
+        youtube.pause();
+
+        System.out.println("\n--- TikTok ---");
+        tiktok.upload();
+        tiktok.play();
+        tiktok.pause();
+    }
+
+    public void socialMedia() {
+        System.out.println("\n=== SocialMedia  ===");
+
+        SocialMedia instagram = new Instagram("맛집 브런치");
+        SocialMedia twitter = new Twitter("오늘 날씨가 정말 좋네요!");
+
+        System.out.println("--- Instagram 테스트 ---");
+        instagram.post();
+        instagram.like();
+        instagram.share();
+
+        System.out.println("\n--- Twitter 테스트 ---");
+        twitter.post();
+        twitter.like();
+        twitter.share();
+    }
+
+    public void onlineShopping() {
+        System.out.println("\n=== OnlineShopping 인터페이스 테스트 ===");
+
+        OnlineShopping amazon = new Amazon("프로그래밍 책");
+        OnlineShopping coupang = new Coupang("무선 마우스");
+
+        System.out.println("--- Amazon 테스트 ---");
+        amazon.browse();
+        amazon.addToCart();
+        amazon.purchase();
+
+        System.out.println("\n--- Coupang 테스트 ---");
+        coupang.browse();
+        coupang.addToCart();
+        coupang.purchase();
+    }
+
+    public void messenger() {
+        System.out.println("\n=== Messenger ===");
+
+        Messenger kakao = new KakaoTalk("친구1");
+        Messenger discord = new Discord("개발자방");
+
+        System.out.println("--- KakaoTalk 테스트 ---");
+        kakao.sendMessage();
+        kakao.receiveMessage();
+        kakao.makeCall();
+
+        System.out.println("\n--- Discord 테스트 ---");
+        discord.sendMessage();
+        discord.receiveMessage();
+        discord.makeCall();
+    }
+
+    public void streamingService() {
+        System.out.println("\n=== StreamingService  ===");
+
+        StreamingService netflix = new Netflix("스트레인저 씽즈");
+        StreamingService disney = new Disney("토이 스토리");
+
+        System.out.println("--- Netflix 테스트 ---");
+        netflix.login();
+        netflix.watch();
+        netflix.logout();
+
+        System.out.println("\n--- Disney+ 테스트 ---");
+        disney.login();
+        disney.watch();
+        disney.logout();
+    }
 //
 //
 //
@@ -193,4 +186,4 @@
 //            System.out.println();
 //        }
 //    }
-//}
+}

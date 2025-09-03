@@ -6,21 +6,25 @@ public class KakaoTalk extends KakaoService {
     private boolean isOnline;
 
     // 생성자
-    public KakaoTalk() {
-        super();
-    }
     public KakaoTalk(int friendCount, boolean isOnline) {
+        super();
         this.friendCount = friendCount;
         this.isOnline = isOnline;
     }
-    public KakaoTalk(String serviceName, String userId, String userNickname, boolean isLoggedIn) {
-        super(serviceName, userId, userNickname, isLoggedIn);
+
+    // public KakaoTalk(String serviceName, String userId, String userNickname, boolean isLoggedIn,boolean isOnline) {
+    public KakaoTalk(String serviceName, String userId, String userNickname, boolean isLoggedIn,boolean isOnline) {
+        super(serviceName, userId, userNickname, isLoggedIn, "Talk");
+        this.friendCount = friendCount;
     }
+
+
     public KakaoTalk(String serviceName, String userId, String userNickname, int friendCount, boolean isOnline) {
-        super(serviceName, userId, userNickname, true);
+        super(serviceName, userId, userNickname, "Talk");
         this.friendCount = friendCount;
         this.isOnline = isOnline;
     }
+
 
     // getter setter
     public int getFriendCount() {
@@ -60,12 +64,15 @@ public class KakaoTalk extends KakaoService {
 
     @Override
     public String getServiceType() {
-        return "MESSENGER 반환";
+        return "메신저";
     }
 
     @Override
     public void performSpecialAction() {
-        System.out.println("메시지 전송 기능");
+        System.out.println("메시지 전송 기능을 실행합니다.");
+        System.out.println("친구들과 실시간 채팅을 즐겨보세요.");
+
+        // 또는 아래 구현된 메서드들을 호출할 수 있음
     }
 
     @Override
@@ -78,29 +85,17 @@ public class KakaoTalk extends KakaoService {
             System.out.println("[카카오톡에서 알림 수신] " + message);
     }
 
-    // 고유 메서드
+    // KAKAOTALK 에서만 있는 기능
     public void sendMessage(String friendName, String message){
-        if (!"TALK".equals(getServiceType())) {
-            System.out.println("카카오톡 서비스가 아닙니다!");
-            return;
-        }
         System.out.println(friendName + "에게 메시지 전송: " + message);
     }
 
     public void addFriend(String friendName){
-        if (!"TALK".equals(getServiceType())) {
-            System.out.println("카카오톡 서비스가 아닙니다!");
-            return;
-        }
         this.friendCount++;
         System.out.println(friendName + "를 친구로 추가했습니다. (총 친구 수: " + getFriendCount() + ")");
     }
 
     public void changeStatus(boolean online){
-        if (!"TALK".equals(getServiceType())) {
-            System.out.println("카카오톡 서비스가 아닙니다!");
-            return;
-        }
         this.isOnline = online;
         System.out.println("상태를 " + (online ? "온라인" : "오프라인") + "으로 변경했습니다.");
     }
