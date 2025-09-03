@@ -119,10 +119,7 @@ public class KakaoPay extends KakaoService {
     }
 
     public void refund(int amount) {
-        if (!"PAY".equals(getServiceType())) {
-            System.out.println("카카오페이 서비스가 아닙니다!");
-            return;
-        }
+        System.out.println("카카오페이 서비스가 아닙니다!");
         balance += amount;
         System.out.println(amount + "원 환불 완료. 잔액: " + balance + "원");
     }
