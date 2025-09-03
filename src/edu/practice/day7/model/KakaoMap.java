@@ -1,7 +1,5 @@
 package edu.practice.day7.model;
 
-import edu.practice.day7.KakaoService;
-
 public class KakaoMap extends KakaoService {
     // 필드
     private String currentLocation;
@@ -42,7 +40,6 @@ public class KakaoMap extends KakaoService {
     public void showUserInfo() {
         System.out.println("현재 위치: " + getCurrentLocation());
         System.out.println("GPS 상태: " + (isGPSEnabled ? "활성화" : "비활성화"));
-
     }
 
     @Override
@@ -51,7 +48,6 @@ public class KakaoMap extends KakaoService {
         if (isGPSEnabled) {
             System.out.println("GPS가 활성화되었습니다.");
         }
-
     }
 
     @Override
@@ -69,8 +65,14 @@ public class KakaoMap extends KakaoService {
 
     }
 
+    @Override
     public void sendNotification(String message){
         System.out.println("[카카오맵 알림] " + message);
+    }
+
+    @Override
+    public void receiveNotification(String message) {
+            System.out.println("[카카오맵에서 알림 수신] " + message);
     }
 
     // 고유 메서드
@@ -103,6 +105,4 @@ public class KakaoMap extends KakaoService {
     public void updateLocation(String newLocation){
         System.out.println("지도에 " + newLocation + " 추가되었습니다.");
     }
-
-
 }

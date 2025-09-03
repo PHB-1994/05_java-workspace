@@ -1,7 +1,5 @@
 package edu.practice.day7.model;
 
-import edu.practice.day7.KakaoService;
-
 public class KakaoPay extends KakaoService {
     // 필드
     private int balance;
@@ -67,11 +65,26 @@ public class KakaoPay extends KakaoService {
 
     }
 
+    @Override
     public void sendNotification(String message){
         System.out.println("[카카오페이 알림] " + message);
     }
 
+    @Override
+    public void receiveNotification(String message) {
+            System.out.println("[카카오페이에서 알림 수신] " + message);
+    }
+
     // 고유 메서드
+    public void chargeBalance(int amount) {
+        if (!"PAY".equals(getServiceType())) {
+            System.out.println("카카오페이 서비스가 아닙니다!");
+            return;
+        }
+        balance += amount;
+        System.out.println(amount + "원 충전 완료. 잔액: " + balance + "원");
+    }
+
     public boolean processPayment(int amount) {
         if (!"PAY".equals(getServiceType())) {
             System.out.println("카카오페이 서비스가 아닙니다!");
@@ -87,13 +100,14 @@ public class KakaoPay extends KakaoService {
         }
     }
 
-    public void refund(int amount) {
+    public void transferMoney(String recipient, int amount) {
         if (!"PAY".equals(getServiceType())) {
             System.out.println("카카오페이 서비스가 아닙니다!");
             return;
         }
-        balance += amount;
-        System.out.println(amount + "원 환불 완료. 잔액: " + balance + "원");
+        if (processPayment(amount)) {
+            System.out.println(recipient + "에게 " + amount + "원 송금 완료");
+        }
     }
 
     public int getBalance() {
@@ -104,22 +118,13 @@ public class KakaoPay extends KakaoService {
         return balance;
     }
 
-    public void chargeBalance(int amount) {
+    public void refund(int amount) {
         if (!"PAY".equals(getServiceType())) {
             System.out.println("카카오페이 서비스가 아닙니다!");
             return;
         }
         balance += amount;
-        System.out.println(amount + "원 충전 완료. 잔액: " + balance + "원");
+        System.out.println(amount + "원 환불 완료. 잔액: " + balance + "원");
     }
 
-    public void transferMoney(String recipient, int amount) {
-        if (!"PAY".equals(getServiceType())) {
-            System.out.println("카카오페이 서비스가 아닙니다!");
-            return;
-        }
-        if (processPayment(amount)) {
-            System.out.println(recipient + "에게 " + amount + "원 송금 완료");
-        }
-    }
 }

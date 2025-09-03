@@ -1,4 +1,4 @@
-package edu.practice.day7;
+package edu.practice.day7.model;
 
 /**
  * 부모 클래스이지만
@@ -75,4 +75,6 @@ public abstract class KakaoService {
     public abstract void stopService();
     public abstract String getServiceType();
     public abstract void performSpecialAction();
+    public abstract void sendNotification(String message);
+    public abstract void receiveNotification(String message);
 }

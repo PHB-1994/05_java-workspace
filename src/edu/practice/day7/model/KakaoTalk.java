@@ -1,7 +1,5 @@
 package edu.practice.day7.model;
 
-import edu.practice.day7.KakaoService;
-
 public class KakaoTalk extends KakaoService {
     // 필드
     private int friendCount;
@@ -70,11 +68,17 @@ public class KakaoTalk extends KakaoService {
         System.out.println("메시지 전송 기능");
     }
 
-    // 고유 메서드
+    @Override
     public void sendNotification(String message){
         System.out.println("[카카오톡 알림] " + message);
     }
 
+    @Override
+    public void receiveNotification(String message) {
+            System.out.println("[카카오톡에서 알림 수신] " + message);
+    }
+
+    // 고유 메서드
     public void sendMessage(String friendName, String message){
         if (!"TALK".equals(getServiceType())) {
             System.out.println("카카오톡 서비스가 아닙니다!");
@@ -101,14 +105,6 @@ public class KakaoTalk extends KakaoService {
         System.out.println("상태를 " + (online ? "온라인" : "오프라인") + "으로 변경했습니다.");
     }
 
-    public void receiveNotification(String message) {
-        if ("TALK".equals(getServiceType())) {
-            System.out.println("[카카오톡에서 알림 수신] " + message);
-        } else if ("PAY".equals(getServiceType())) {
-            System.out.println("[카카오페이에서 알림 수신] " + message);
-        } else if ("MAP".equals(getServiceType())) {
-            System.out.println("[카카오맵에서 알림 수신] " + message);
-        }
-    }
+
 
 }

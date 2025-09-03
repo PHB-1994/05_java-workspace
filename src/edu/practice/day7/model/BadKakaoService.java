@@ -145,7 +145,6 @@ public class BadKakaoService {
             System.out.println("[카카오맵 알림] " + message);
         }
     }
-
     // 알림 받기 (모든 서비스에서 동일하지만 각각 구현)
     public void receiveNotification(String message) {
         if ("TALK".equals(serviceType)) {
