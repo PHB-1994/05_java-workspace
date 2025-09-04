@@ -120,6 +120,18 @@ public class ListPracticeRun {
         // 4. 가장 큰 숫자를 찾아서 출력하세요
 
         List<Integer>   list = new ArrayList<>();
+
+//        for(int i = 1; i <= 10; i++){
+//            if(i % 2 != 0){
+//                list.add(i);
+//            }
+//        }
+//        for(int i = 1; i <= 10; i++){
+//            if(i % 2 == 0){
+//                list.add(i);
+//            }
+//        }
+//        System.out.println(list);
         list.add(1);
         list.add(3);
         list.add(5);
@@ -156,11 +168,4 @@ public class ListPracticeRun {
 
         System.out.println("가장 큰 수 : " + max);
     }
-
-
-
-
-
-
-
 }
