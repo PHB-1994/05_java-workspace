@@ -88,102 +88,102 @@ public class PracticeService {
         disney.watch();
         disney.logout();
     }
-//
-//
-//
-//    public void digitalLife() {
-//        System.out.println("\n=== 디지털 라이프 시뮬레이션 ===");
-//
-//        System.out.println("🌐 디지털 라이프 시작! 🌐\n");
-//
-//        // 아침: 유튜브로 하루 시작
-//        System.out.println("🌅 === 아침 루틴 ===");
-//        VideoPlayer youtube = new YouTube("아침 요가 영상");
-//        youtube.upload();
-//        youtube.play();
-//        System.out.println();
-//
-//        // 점심: 인스타그램에 점심 사진 업로드
-//        System.out.println("🍽️ === 점심시간 ===");
-//        SocialMedia instagram = new Instagram("맛있는 파스타");
-//        instagram.post();
-//        instagram.like();
-//        System.out.println();
-//
-//        // 오후: 온라인 쇼핑
-//        System.out.println("🛍️ === 쇼핑 타임 ===");
-//        OnlineShopping coupang = new Coupang("무선 이어폰");
-//        coupang.browse();
-//        coupang.addToCart();
-//        coupang.purchase();
-//        System.out.println();
-//
-//        // 저녁: 친구와 카톡
-//        System.out.println("💬 === 저녁 대화 ===");
-//        Messenger kakao = new KakaoTalk("베스트프렌드");
-//        kakao.sendMessage();
-//        kakao.receiveMessage();
-//        System.out.println();
-//
-//        // 밤: 넷플릭스로 하루 마무리
-//        System.out.println("🌙 === 밤 휴식시간 ===");
-//        StreamingService netflix = new Netflix("오징어 게임");
-//        netflix.login();
-//        netflix.watch();
-//
-//        System.out.println("\n🌐 디지털 라이프 완료! 내일 또 만나요! 🌐");
-//    }
-//
-//    public static void servicesTogether() {
-//        System.out.println("\n=== 모든 서비스 ===");
-//
-//        // 사용자가 하루 동안 이용하는 모든 디지털 서비스
-//        System.out.println("📱 현대인의 하루 디지털 서비스 이용 패턴");
-//
-//        VideoPlayer[] videos = {new YouTube("모닝 뉴스"), new TikTok("댄스챌린지")};
-//        SocialMedia[] socials = {new Instagram("오늘의 OOTD"), new Twitter("좋은 생각 공유")};
-//        OnlineShopping[] shopping = {new Amazon("책"), new Coupang("생필품")};
-//        Messenger[] messengers = {new KakaoTalk("가족"), new Discord("친구들")};
-//        StreamingService[] streaming = {new Netflix("드라마"), new Disney("애니메이션")};
-//
-//        System.out.println("\n=== 모든 동영상 서비스 이용 ===");
-//        for (VideoPlayer video : videos) {
-//            video.upload();
-//            video.play();
-//            video.pause();
-//            System.out.println();
-//        }
-//
-//        System.out.println("=== 모든 소셜미디어 서비스 이용 ===");
-//        for (SocialMedia social : socials) {
-//            social.post();
-//            social.like();
-//            social.share();
-//            System.out.println();
-//        }
-//
-//        System.out.println("=== 모든 쇼핑 서비스 이용 ===");
-//        for (OnlineShopping shop : shopping) {
-//            shop.browse();
-//            shop.addToCart();
-//            shop.purchase();
-//            System.out.println();
-//        }
-//
-//        System.out.println("=== 모든 메신저 서비스 이용 ===");
-//        for (Messenger msg : messengers) {
-//            msg.sendMessage();
-//            msg.receiveMessage();
-//            msg.makeCall();
-//            System.out.println();
-//        }
-//
-//        System.out.println("=== 모든 스트리밍 서비스 이용 ===");
-//        for (StreamingService stream : streaming) {
-//            stream.login();
-//            stream.watch();
-//            stream.logout();
-//            System.out.println();
-//        }
-//    }
+
+
+
+    public void digitalLife() {
+        System.out.println("\n=== 디지털 라이프 시뮬레이션 ===");
+
+        System.out.println("🌐 디지털 라이프 시작! 🌐\n");
+
+        // 아침: 유튜브로 하루 시작
+        System.out.println("🌅 === 아침 루틴 ===");
+        VideoPlayer youtube = new YouTube("아침 요가 영상");
+        youtube.upload();
+        youtube.play();
+        System.out.println();
+
+        // 점심: 인스타그램에 점심 사진 업로드
+        System.out.println("🍽️ === 점심시간 ===");
+        SocialMedia instagram = new Instagram("맛있는 파스타");
+        instagram.post();
+        instagram.like();
+        System.out.println();
+
+        // 오후: 온라인 쇼핑
+        System.out.println("🛍️ === 쇼핑 타임 ===");
+        OnlineShopping coupang = new Coupang("무선 이어폰");
+        coupang.browse();
+        coupang.addToCart();
+        coupang.purchase();
+        System.out.println();
+
+        // 저녁: 친구와 카톡
+        System.out.println("💬 === 저녁 대화 ===");
+        Messenger kakao = new KakaoTalk("베스트프렌드");
+        kakao.sendMessage();
+        kakao.receiveMessage();
+        System.out.println();
+
+        // 밤: 넷플릭스로 하루 마무리
+        System.out.println("🌙 === 밤 휴식시간 ===");
+        StreamingService netflix = new Netflix("오징어 게임");
+        netflix.login();
+        netflix.watch();
+
+        System.out.println("\n🌐 디지털 라이프 완료! 내일 또 만나요! 🌐");
+    }
+
+    public static void servicesTogether() {
+        System.out.println("\n=== 모든 서비스 ===");
+
+        // 사용자가 하루 동안 이용하는 모든 디지털 서비스
+        System.out.println("📱 현대인의 하루 디지털 서비스 이용 패턴");
+
+        VideoPlayer[] videos = {new YouTube("모닝 뉴스"), new TikTok("댄스챌린지")};
+        SocialMedia[] socials = {new Instagram("오늘의 OOTD"), new Twitter("좋은 생각 공유")};
+        OnlineShopping[] shopping = {new Amazon("책"), new Coupang("생필품")};
+        Messenger[] messengers = {new KakaoTalk("가족"), new Discord("친구들")};
+        StreamingService[] streaming = {new Netflix("드라마"), new Disney("애니메이션")};
+
+        System.out.println("\n=== 모든 동영상 서비스 이용 ===");
+        for (VideoPlayer video : videos) {
+            video.upload();
+            video.play();
+            video.pause();
+            System.out.println();
+        }
+
+        System.out.println("=== 모든 소셜미디어 서비스 이용 ===");
+        for (SocialMedia social : socials) {
+            social.post();
+            social.like();
+            social.share();
+            System.out.println();
+        }
+
+        System.out.println("=== 모든 쇼핑 서비스 이용 ===");
+        for (OnlineShopping shop : shopping) {
+            shop.browse();
+            shop.addToCart();
+            shop.purchase();
+            System.out.println();
+        }
+
+        System.out.println("=== 모든 메신저 서비스 이용 ===");
+        for (Messenger msg : messengers) {
+            msg.sendMessage();
+            msg.receiveMessage();
+            msg.makeCall();
+            System.out.println();
+        }
+
+        System.out.println("=== 모든 스트리밍 서비스 이용 ===");
+        for (StreamingService stream : streaming) {
+            stream.login();
+            stream.watch();
+            stream.logout();
+            System.out.println();
+        }
+    }
 }

@@ -18,6 +18,8 @@ public class PracticeRun {
         practiceService.onlineShopping();
         practiceService.messenger();
         practiceService.streamingService();
+        practiceService.digitalLife();
+        practiceService.servicesTogether();
 
     }
 }
