@@ -103,10 +103,8 @@ public class EmployeeManageRun {
                         System.out.print("새로운 급여를 입력하세요 (만원 단위) : ");
                         int modifySalary = sc.nextInt();
                         salaryList.set(index, modifySalary);
-                        // 여기서 index 바뀌기 전? modifySalary 는 바꾸는 값????? ====================================================================
                         System.out.println("급여가 수정되었습니다!");
                     }
-
                     break;
 
                 case 4:
@@ -128,9 +126,9 @@ public class EmployeeManageRun {
                         System.out.println("존재하지 않는 직원입니다.");
                     }else {
                         // deleteIndex 이거쓰면 숫자가 바뀌는 거 아닌가...? ==============================================================================
-                        nameList.remove(deleteName);
-                        salaryList.remove(deleteName);
-                        System.out.println(deleteName + " 직원이 퇴사 처리되었습니다.");
+                        nameList.remove(deleteIndex);
+                        salaryList.remove(deleteIndex);
+                        System.out.println(deleteIndex + " 직원이 퇴사 처리되었습니다.");
                     }
                     break;
 
