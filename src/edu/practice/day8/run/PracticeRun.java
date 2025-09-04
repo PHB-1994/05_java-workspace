@@ -1,7 +1,6 @@
 package edu.practice.day8.run;
 
-import edu.practice.day8.*;
-import edu.practice.day8.model.SocialMedia;
+
 import edu.practice.day8.service.PracticeService;
 
 /**
@@ -19,7 +18,7 @@ public class PracticeRun {
         practiceService.messenger();
         practiceService.streamingService();
         practiceService.digitalLife();
-        practiceService.servicesTogether();
+        PracticeService.servicesTogether();
 
     }
 }
