@@ -12,7 +12,8 @@ public class ListPracticeRun {
         // problem2();
         // problem3();
         // problem4();
-        problem5();
+        // problem5();
+        problem6();
     }
  
     // void 앞에 static 이 붙는다는 것은 ... 변수이름에 의하여 호출되지 않고,
@@ -167,5 +168,33 @@ public class ListPracticeRun {
         }
 
         System.out.println("가장 큰 수 : " + max);
+    }
+
+    public static void problem6(){
+        // System.out.println("제대로 단독적으로 실행 가능한지 확인합시다.");
+        // 1. String 타입의 ArrayList를 생성하세요
+        // 2. 본인의 취미 3개를 추가하세요 (예: "게임", "독서", "요리")
+        // 3. 리스트의 크기를 출력하세요
+        // 4. 모든 취미를 출력하세요 (반복문 사용)
+        List<String> strlist = new ArrayList<String>();
+        strlist.add("게임");
+        strlist.add("요리");
+        strlist.add("독서");
+        strlist.add("요리");
+        strlist.add("요리");
+        System.out.println(strlist);
+
+        System.out.println("요리가 몇 번 쨰로 들어있나 ? : " + strlist.indexOf("요리"));
+        // 요리가 몇 번 쨰로 들어있나 ? : 1
+        // indexOf() 는 중복된 데이터가 여러 개 있을 경우 맨 앞에 있는 index 번호만 출력
+        
+        // 요리가 들어 있는 모든 index 를 보고 싶어요.
+        for(int i=0;i<strlist.size();i++){
+            if(strlist.get(i).equals("요리")){ // equals 문자열 비교하는 속성
+                                               // equals 는 비교했을 때 동일하면 true 다르면 false
+                System.out.println(i + " 번 째 위치");
+            }
+        }
+
     }
 }
