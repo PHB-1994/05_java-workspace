@@ -1,4 +1,7 @@
 package edu.exception.pack3;
+
+import java.io.IOException;
+
 /*
 Checked Exception / UnChecked Exception
 
@@ -17,13 +20,16 @@ public class ExceptionEx3 {
         int result = 1;
         if(result == 1){
             throw new RuntimeException(); // 빨간 줄 안뜸
+
+            // throw new IOException();   // 빨간 줄 뜸
+            // -> try catch 를 통해 예외 처리를 필수로 진행해야함
         }
     }
 
     public void method2(){
         int result = 101;
         if(result > 100){
-            throw new 개발자Exception();
+            throw new 개발자Exception(); // -> try-catch 필수 아님
         }
     }
 
