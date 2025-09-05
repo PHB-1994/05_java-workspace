@@ -125,7 +125,6 @@ public class EmployeeManageRun {
                     if(deleteIndex == -1){
                         System.out.println("존재하지 않는 직원입니다.");
                     }else {
-                        // deleteIndex 이거쓰면 숫자가 바뀌는 거 아닌가...? ==============================================================================
                         nameList.remove(deleteIndex);
                         salaryList.remove(deleteIndex);
                         System.out.println(deleteIndex + " 직원이 퇴사 처리되었습니다.");
