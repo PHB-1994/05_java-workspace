@@ -223,29 +223,34 @@ public class PracticeException1 {
     public void method6() {
         // 여기에 코드 작성
         System.out.println("파일명을 입력하세요 (예: test.txt) : ");
-        String fileName = sc.nextLine();
-        // String extension = fileName.substring(fileName.lastIndexOf(".") + 1);
-        // fileName.lastIndexOf(".") == -1
-        int dotIndex = fileName.lastIndexOf(".");
-        String extension = fileName.substring(dotIndex + 1);
+        try {
+            String fileName = sc.nextLine();
+            // fileName.lastIndexOf(".") == -1
+            int dotIndex = fileName.lastIndexOf(".");
+            System.out.println("dotIndex 번호 확인 : " + dotIndex);
+            // 만약에 . 이 존재하지 않거나, 맨 마지막에 위치한 글자가 . 이라면
+            // 아래 기능을 실행하지 못하도록 예외 상황을 프로그램 개발자가 발생시킬 것 임
 
-        // 점이 없으면 dotIndex 가 -1 이므로 charAt(0)에서 빈 문자열이 발생해서 예외 유도
-        extension.charAt(0);
+            if(dotIndex == -1){
+                throw new StringIndexOutOfBoundsException("확장자가 존재하지 않습니다.");
+            }
 
-        try{
+            String extension = fileName.substring(dotIndex + 1);
+
+            // 점이 없으면 dotIndex 가 -1 이므로 charAt(0)에서 빈 문자열이 발생해서 예외 유도
+            extension.charAt(0);
+
             System.out.println("파일명 : " + fileName);
             System.out.println("확장자 : " + extension);
 
-        }catch(StringIndexOutOfBoundsException e){
-            System.out.println("올바른 파일명이 아닙니다. 확장자가 포함된 파일명을 입력하세요.");
+        } catch (StringIndexOutOfBoundsException e) {
+            System.out.println("올바른 파일명이 아닙니다. 확장자가 포함된 파일명을 다시 작성해주세요.");
 
-        }catch(Exception e){
-            System.out.println("예기치 못한 문제가 발생했습니다.");
+        } catch(Exception e){
+            System.out.println("개발자가 생각치 못한 문제가 발생했습니다.");
 
-        }finally{
+        }finally {
             System.out.println("파일명 처리를 완료했습니다.");
         }
-
-
     }
 }
