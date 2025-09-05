@@ -1,0 +1,52 @@
+package edu.exception.pack1.ex;
+
+import java.util.Scanner;
+
+public class PracticeException1 {
+    // 단축키 : 코드 블록을 드래그 한 후 ctrl + alt + t 를 작성하면
+    // if 부터 try-catch while 등 코드 블록에 대한 상황 설정을 할 수 있는
+    // 블록들이 나옴
+
+    /**
+     * 기능 명칭 : method1()
+     * 두 수를 입력 받아 나눈 몫 구하기
+     * 정수 입력 1 :
+     * 정수 입력 2 :
+     *
+     * System.out.println(정수 입력 1 / 정수 입력 2);
+     * 에 대해 수행하고,
+     * 정수 입력 2 : 를 0 으로 입력했을 때 발생 하는 예외를
+     * catch 처리 한 후
+     * System 출력문으로 0으로 숫자를 나눌 수 없습니다.
+     *
+     * 성공 실패 관계 없이 프로그램을 종료합니다.
+     * 띄우기
+     */
+    public void method1(){
+        Scanner sc =new Scanner(System.in);
+        System.out.println("두 수를 입력받아 나눈 몫 구하기");
+
+        System.out.print("정수 입력 1 : ");
+        int a = sc.nextInt();
+        System.out.print("정수 입력 2 : ");
+        int b = sc.nextInt();
+
+        try{
+            // 모~든 코드를 작성하기 보다는 문제가 발생할 것 같은 구문만 주로 작성
+            System.out.println("나눈 값의 결과 : " + a / b);
+
+        }catch(ArithmeticException e){
+            System.out.println("a 의 값 : " + a);
+            System.out.println("b 의 값 : " + b);
+            System.out.println("0 으로 숫자를 나눌 수 없습니다.");
+            // 다른 방법을 시도하시겠습니까? + 나 * 와 같은 행동을 유도할 수 있음
+
+        }catch(Exception e){
+            System.out.println("개발자가 예기치 못한 문제가 발생했습니다.");
+            System.out.println("회사에 오류에 대한 보고서 보내기 YES/NO");
+
+        }finally{
+            System.out.println("프로그램을 종료합니다.");
+        }
+    }
+}
