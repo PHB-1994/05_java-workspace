@@ -103,6 +103,58 @@ public class ExceptionService {
         }
     }
 
+    public void method5(){
+        String DBID = "user1";
+        String DBPW = "pass1";
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("아이디를 입력하세요 : ");
+        String 사용자입력Id = sc.nextLine();
+        System.out.print("비밀번호를 입력하세요 : ");
+        String 사용자입력Pw = sc.nextLine();
+
+        try {
+            if(!DBID.equals(사용자입력Id)){
+                // System.out.print 는 개발자가 문제되는 코드의 로직에 대한 결과를
+                // 확인하거나 log 와 같은 txt 파일에 소비자가 로그인 하는 순간부터
+                // 로그아웃 되는 순간까지 시시각각 기록하는 파일
+                // DB 에 저장되어 있는 ID 와 소비자가 html 에서 작성한 id 가 일치하는지 확인하고
+                // DB 에 저장되어 있는 아이디가 없으면
+                // 예외문제가 발생하는 상황에서 존재하지 않는 아이디입니다.
+                // 와 같은 경고와 함께 진행하고 있던 기능을 정지
+                // -> throw new 또는 exception 역할
+                // System.out.println("사용자 입력 아이디가 일치하지 않습니다.");
+                throw new UserNotFoundException();
+            }
+
+            if(!DBPW.equals(사용자입력Pw)){
+                throw new InvalidPasswordException("일치하는 회원을 찾을 수 없습니다.");
+            }
+
+            System.out.println(사용자입력Id + " 님이 로그인 완료되었습니다.");
+
+        } catch (UserNotFoundException e) {
+            // 이 경우 회사 기획 부서에서 전달받은 내용대로 추가 로직 작성하기
+            // 아이디를 찾을 수 없을 때 휴면 계정으로 전환된 것은 아닌지
+            // 와 같은 세부 로직 작성
+
+        } catch (InvalidPasswordException e) {
+            // 이 경우 회사 기획 부서에서 전달받은 내용대로 추가 로직 작성하기
+            // 비밀번호를 5회 잘못 입력했을 경우 아이디 비밀번호
+            // 고객센터 전화 후 회사에서 직접적으로 풀어주는 lock 설정 한다던지
+            // 휴면 계정 처리하기
+
+        } catch (Exception e) {
+            System.out.println("개발자가 모르는 문제 발생");
+            // File 클래스를 이용해서 log.log 와 같은 확장자 파일을 새엉 후
+            // 문제가 생긴 데이터를 모두 .log 라는 파일 안에 작성하여
+            // 개발부서에서 내부적으로 문제를 해결할 수 있도록 진행
+        }
+
+
+    }
+
 
     // 일주일 내 풀어볼 숙제
     // 스캐너로 ArrayList 이용해서 숫자 값 입력받고, 입력받은 숫자값의 총 길이나
