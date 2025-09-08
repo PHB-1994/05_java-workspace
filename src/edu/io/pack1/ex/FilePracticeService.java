@@ -109,22 +109,22 @@ public class FilePracticeService {
             f.createNewFile();
 
             // 파일이 성공적으로 성공되었는지 확인
-//            if(f.exists()){
-//                System.out.println(fName + "을 생성하였습니다.");
-//
-//                // ============================= 삭제 기능이 없지 않나..? ==========================================
-//                if(f.delete()){
-//                    System.out.println(f.getName() + " 파일을 삭제했습니다.");
-//                } else {
-//                    System.out.println(f.getName() + " 파일 삭제에 실패했습니다.");
-//                }
-//            }
-//            // 파일이 정말로 삭제되었습니다 다시 확인
-//            if(!f.exists()){
-//                System.out.println("파일 삭제 완료");
-//            } else {
-//                System.out.println("파일 삭제 실패");
-//            }
+            if(f.exists()){
+                System.out.println(fName + "을 생성하였습니다.");
+
+                // ============================= 삭제 기능이 없지 않나..? ==========================================
+                if(f.delete()){
+                    System.out.println(f.getName() + " 파일을 삭제했습니다.");
+                } else {
+                    System.out.println(f.getName() + " 파일 삭제에 실패했습니다.");
+                }
+            }
+            // 파일이 정말로 삭제되었습니다 다시 확인
+            if(!f.exists()){
+                System.out.println("파일 삭제 완료");
+            } else {
+                System.out.println("파일 삭제 실패");
+            }
 
         } catch (IOException e) {
             System.out.println("파일 생성에 문제가 발생했습니다.");
