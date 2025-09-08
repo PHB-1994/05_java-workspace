@@ -97,7 +97,7 @@ public class FileService {
     public void method2(){
 
         File 파일하나 = new File("/io_test/gildong/파일생성확인.txt");
-        
+
         // 폴더 생성 mkdir() mkdirs()
         // 폴더와 별개로 [파일]을 마지막에 생성할 때
         // 파일 생성할 때
@@ -220,7 +220,6 @@ public class FileService {
 
         // 저장된 폴더에 있는 모든 파일 / 폴더를 File[] 형태로 얻어오기
         File[] files = directory.listFiles();
-        // directory.listFiles() 뭔뜻임? =================================================================
 
         for(File file : files){
 
@@ -238,7 +237,7 @@ public class FileService {
 
             // 파일 유형
             String type;
-            
+
             if(file.isFile()){ // 폴더가 아니라 파일 형태가 맞다면
                 type = "파일";
             }else{

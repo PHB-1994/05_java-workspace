@@ -6,6 +6,7 @@ public class FilePracticeRun {
     public static void main(String[] args) throws IOException {
         FilePracticeService filePracticeService = new FilePracticeService();
         // filePracticeService.method1();
-        filePracticeService.method2();
+        // filePracticeService.method2();
+        filePracticeService.method3();
     }
 }
