@@ -3,11 +3,13 @@ package edu.io;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class FileEx {
     /*
     파일 읽기 관련
-    FIleInputStream  : 파일의 바이트 데이터를 읽어오는 클래스
+    FileInputStream  : 파일의 바이트 데이터를 읽어오는 클래스
     FileReader       : 파일의 텍스트 데이터를 문자 단위로 읽는 클래스
     BufferedReader   : 파일의 텍스르를 버퍼에 담아 효율적으로 읽는 클래스
     Scanner          : 파일의 데이터를 다양한 형태로 파싱하여 읽는 클래스
@@ -15,7 +17,7 @@ public class FileEx {
     파일 쓰기 관련
     FileOutputStream : 파일의 바이트 데이터를 저장하는 클래스
     FileWriter       : 파일에 텍스트 데이터를 문자 단위로 저장하는 클래스
-    BufferWriter     : 파일에 텍스트를 버퍼에 담아 효율적으로 저장하는 클래스
+    BufferedWriter     : 파일에 텍스트를 버퍼에 담아 효율적으로 저장하는 클래스
     PrintWriter      : 파일에 다양한 형태의 데이터를 편리하게 저장하는 클래스
 
     파일 정보 및 관리
@@ -105,6 +107,33 @@ public class FileEx {
         Path 상대경로2 = Path.of("src","file.txt"); // java_basic 폴더에서 src 폴더 아래 위치한 file.txt
         Path 상대경로3 = Path.of("..","file.txt"); // java_basic 폴더를 감싸고 있는 java_workspace 폴더를 가리킴
         Path 상대경로4 = Path.of(".","path1","file.txt"); // 현재 폴더에서 path1 폴더 안에 존재하는 file.txt
+    }
+
+    /*
+    유틸리티 클래스 및 메서드 기능
+    유틸리티 : 편리한 도구들의 모음집
+     */
+    public void utilityMethod(){
+        // 클래스 기반 유틸리티
+        try {
+            // File 에는 존재하지 않지만 Files 에는 존재하는 기능들
+            Files.copy(Path.of("원본"), Path.of("사본"));
+            Files.move(Path.of("원본"), Path.of("사본"));
+            Files.delete(Path.of("사본"));
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        // 메서드 유틸리티
+        double 결과1 = Math.max(10,20);
+        double 결과2 = Math.sqrt(10);
+        double 결과3 = Math.random();
+
+        ArrayList list = new ArrayList<>();
+        // 정렬 뒤집기
+        Collections.sort(list); // 정렬 도구
+        Collections.reverse(list); // 뒤집기 도구
     }
 
 
