@@ -17,7 +17,7 @@ public class FileEx {
     파일 쓰기 관련
     FileOutputStream : 파일의 바이트 데이터를 저장하는 클래스
     FileWriter       : 파일에 텍스트 데이터를 문자 단위로 저장하는 클래스
-    BufferedWriter     : 파일에 텍스트를 버퍼에 담아 효율적으로 저장하는 클래스
+    BufferedWriter   : 파일에 텍스트를 버퍼에 담아 효율적으로 저장하는 클래스
     PrintWriter      : 파일에 다양한 형태의 데이터를 편리하게 저장하는 클래스
 
     파일 정보 및 관리
