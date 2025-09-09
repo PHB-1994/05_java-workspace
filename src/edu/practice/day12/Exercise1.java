@@ -6,9 +6,9 @@ import java.nio.file.Path;
 
 public class Exercise1 {
 
-    public void solution1(){
-        Path folderPath = Path.of("practice");
-        Path filePath = Path.of("practice", "hello.txt");
+    public void solution1(String dirName, String fileName) {
+        Path folderPath = Path.of(dirName);
+        Path filePath = Path.of(dirName, fileName);
         String content = "안녕하세요! 자바 파일 처리 연습중입니다.";
 
         try {
@@ -21,8 +21,8 @@ public class Exercise1 {
         }
     }
 
-    public void solution2(){
-        Path filePath = Path.of("practice", "hello.txt");
+    public void solution2(String dirName, String fileName){
+        Path filePath = Path.of(dirName, fileName);
 
         if(!Files.exists(filePath)){
             System.out.println("파일을 찾을 수 없습니다.");
@@ -34,12 +34,12 @@ public class Exercise1 {
             System.out.println("파일 내용 : " + content);
 
         } catch (IOException e) {
-            System.out.println("파일을 읽을 수 없습니다.");
+            System.out.println("파일 읽기 중 오류가 발생했습니다..");
         }
     }
 
-    public void solution3(){
-        Path filePath = Path.of("practice", "menu.txt");
+    public void solution3(String dirName, String fileName){
+        Path filePath = Path.of(dirName, fileName);
         String content = "오늘의 메뉴\n1. 김치찌개\n2. 불고기\n3. 비빔밥";
 
         try {
@@ -47,7 +47,9 @@ public class Exercise1 {
             System.out.println(filePath.getFileName() + " 파일 생성 완료!");
 
         } catch (IOException e) {
-            System.out.println("파일을 생성하는데 실패했습니다.");
+            System.out.println("파일 생성 중 오류 발생");
+            System.out.println("회사에서 지시내린 규칙대로");
+            System.out.println("개발자는 추후 필요한 조치를 취해야함");
         }
 
         try {
@@ -91,10 +93,10 @@ public class Exercise1 {
         }
     }
 
-    public void solution5(){
-        Path dirPath = Path.of("study","java","basic");
-        Path note1Path = Path.of("study","java","basic","note1.txt");
-        Path note2Path = Path.of("study","java","basic","note2.txt");
+    public void solution5(String 폴더1번,String 폴더2번,String 폴더3번){
+        Path dirPath = Path.of(폴더1번,폴더2번,폴더3번);
+        Path note1Path = Path.of(폴더1번,폴더2번,폴더3번,"note1.txt");
+        Path note2Path = Path.of(폴더1번,폴더2번,폴더3번,"note2.txt");
         String note1Content = "자바 기초 공부중";
         String note2Content = "파일 처리 배우는 중";
 
