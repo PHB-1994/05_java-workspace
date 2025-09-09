@@ -7,6 +7,7 @@ public class FileRun3 {
     public static void main(String[] args) {
 
         FileService3 fs = new FileService3();
-        fs.고전방식();
+        // fs.고전방식();
+        fs.현대방식();
     }
 }
