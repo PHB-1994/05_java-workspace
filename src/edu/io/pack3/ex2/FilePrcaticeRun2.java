@@ -1,11 +1,8 @@
-package edu.io.pack3.ex;
+package edu.io.pack3.ex2;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.Scanner;
 
-public class FilePrcaticeRun {
+public class FilePrcaticeRun2 {
 
 
 
@@ -13,16 +10,14 @@ public class FilePrcaticeRun {
         Scanner sc = new Scanner(System.in);
 
 
-        FilePracticeService fps = new FilePracticeService();
+        FilePracticeService2 fps = new FilePracticeService2();
         System.out.print("폴더를 입력하시겠습니까? (yes/no) : ");
-        // 없으면 기본 프로젝트 최상위로 폴더 설정
-        // yes 이면 폴더 입력 후
-        // dirName 으로 입력한 폴더이름 method1 전달
+
         String choice = sc.nextLine().trim().toLowerCase();
-        //              글자입력받고  공백없음    모두소문자처리
+
         String dirName = "";
         if(choice.equals("yes") || choice.equals("y")){
-            System.out.println("폴더명을 입력하세요 : ");
+            System.out.print("폴더명을 입력하세요 : ");
             dirName = sc.nextLine().trim();
         } else {
             dirName = "";
@@ -31,6 +26,16 @@ public class FilePrcaticeRun {
 
         System.out.print("내용을 확인할 파일이름 + 확장자를 입력하세요 : ");
         String fileName = sc.nextLine();
+
+        // fileName 뒤에 확장자를 작성하지 않았을 경우 확장자가 없다 프로그램을 종료합니다.
+        // 추가하기
+        int dotIndex = fileName.lastIndexOf(".");
+        if(dotIndex == -1 || dotIndex == fileName.length()-1){
+            System.out.println("확장자가 존재하지 않습니다.");
+            return;
+        }
+
         fps.method1(dirName, fileName);
+
     }
 }

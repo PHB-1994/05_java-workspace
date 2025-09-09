@@ -1,34 +1,32 @@
-package edu.io.pack3.ex;
+package edu.io.pack3.ex2;
 
 import java.io.IOException;
+import java.nio.file.AccessDeniedException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class FilePracticeService {
-
-    // Path
-    // Files
-    // 를 이용해서 1. my_logs 라는 폴더가 존재하는지 확인하고
-    // 내부에 intro.txt 파일이 존재하는지 확인
-    // 폴더 / 파일 모두 존재하면
-    // 현대 방식 읽기 방식을 활용해서 intro.txt 내부에 작성된 글자를 모두 읽고 읽은 내용 출력
+public class FilePracticeService2 {
+// AccessDeniedException :
     public void method1(String dirName, String fileName) {
         Path path;
 
-        // 폴더명이 있으면 해당 폴더 안의 파일 확인
+
         if(dirName != null && !dirName.isEmpty()){
             path = Path.of(dirName,fileName);
-        } else { // 없으면 현재 최상위 프로젝트 폴더 파일에서 검색
-            path = Path.of(dirName);
+        } else { // 폴더는 선택하지 않았고 파일 내용만 선택 java_basic 에서 filename 에 작성한 파일을 선택하고 출력
+            path = Path.of(fileName);
         }
 
-        // 폴더의 존재 확인
+
+        System.out.println("path.getParent() : " + path.getParent());
+        System.out.println("path : " + path);
+
         if(path.getParent() != null) {
             if(!Files.exists(path.getParent())) {
                 System.out.println("폴더가 존재하지 않습니다. 폴더이름 확인해주세요.");
                 return;
             }
-            if(!Files.isDirectory(path)) {
+            if(!Files.isDirectory(path.getParent())) {
                 System.out.println("폴더가 아니고, 파일 형태 입니다.");
                 return;
             }
@@ -36,6 +34,7 @@ public class FilePracticeService {
         }
 
 
+        System.out.println("생성된 경로 : " + path.toAbsolutePath()); // 완벽한 경로 확인하기
         if(!Files.exists(path)){
             System.out.println("파일이 존재하지 않습니다.");
             return;
@@ -45,7 +44,10 @@ public class FilePracticeService {
             String content = Files.readString(path);
             System.out.println(content);
 
-        } catch (IOException e) {
+        } catch(AccessDeniedException e) {
+            System.out.println("접근 권한이 없습니다.");
+
+        }catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
