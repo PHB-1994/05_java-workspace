@@ -17,7 +17,7 @@ public class 프로필사진run {
 
         // 인터넷에서 이미지 주소를 복사한 후
         // 원하는 이미지를
-        String imgUrl2 = "이미지 주소 넣기";
+        String imgUrl2 = "https://cdn.imweb.me/upload/S20220518fbea59f8e9828/77d99edcb5dbf.jpg";
         service.saveImg2(imgUrl2);
     }
 }
