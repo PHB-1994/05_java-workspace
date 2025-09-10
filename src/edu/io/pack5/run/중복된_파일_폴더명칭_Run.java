@@ -12,6 +12,9 @@ public class 중복된_파일_폴더명칭_Run {
         // service.saveImage2();
         // service.saveImage3();
         // service.saveImage4();
-        service.saveImage5();
+        // service.saveImage5();
+
+        String imgUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnOACrRJyk-4693gXNbbpXfQ4OVXSWm3sl5g&s";
+        service.kakaoSvae(imgUrl);
     }
 }
