@@ -9,21 +9,52 @@ import java.nio.file.Path;
 public class 이미지URL서비스 {
 
     public void dirSaveImg(String imgUrl, String imgDir, String imgName) {
-        Path path = Path.of("profiles",imgDir,imgName);
+        Path path = Path.of(imgDir,imgName);
+        System.out.println("path : " + path);
+        System.out.println("path.getParent() : " + path.getParent());
 
+        // 파일 이름 중복 처리
         try {
+            // path : animal\사자.png
+            // path.getParent()   : 하위 명칭 이외 폴더들을 모두 가져오는 기능
+            // path.getFileName() : 마지막에 존재하는 파일 이름을 가져오는 기능
+            // 이름 뒤에 확장자가 오면 확장자를 지운 후 수정 작업이 필요함
+            String name = path.getFileName().toString(); // 파일이름 가져오기. 파일 형태로 toString() 추가하여 문자열로 처리해야함
+            System.out.println("name : " + name);
+
+            int dot = name.lastIndexOf('.'); // . 을 기준으로 앞에 있는 글자만 가져오겠다.
+            String baseName = name.substring(0, dot); // . 이전의 파일 명칭들이 존재
+            String extName = name.substring(dot); // .png 확장자 명칭이 들어감
+
+            int count = 1;
+
+            do {
+                //              사용자가작성한이름_숫자.png
+                String newName = baseName + "_" + count + extName;
+                path = Path.of(imgDir,newName);
+                count++; // 사자_8.... 동일한 명칭의 파일이 없을 때 까지 진행
+
+            }while(Files.exists(path));
+
+            System.out.println("baseName : " + baseName);
+            System.out.println("extName : " + extName);
+
+
+            // catch(FileAlreadyExistsException e){
+            //            System.out.println("동일한 파일이 존재할 때 발생");
+            //
+            //        }
             Files.createDirectories(path.getParent());
 
             URL u = new URL(imgUrl);
-            InputStream inputStream = u.openStream();
-            Files.copy(inputStream, path);
-            inputStream.close();
+            InputStream in = u.openStream(); // 이미지 데이터를 모두 가져올 수 있도록 설정
+            Files.copy(in, path);
+            in.close();
 
             System.out.println("이미지 저장을 완료했습니다.");
 
-        } catch (IOException e) {
-//            throw new RuntimeException(e);
-            System.out.println("이미지 저장 실패!");
+        }catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
     }
