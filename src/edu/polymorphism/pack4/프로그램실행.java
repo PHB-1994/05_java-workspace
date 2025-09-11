@@ -1,6 +1,5 @@
 package edu.polymorphism.pack4;
 
-import java.util.Scanner;
 
 public class 프로그램실행 {
     

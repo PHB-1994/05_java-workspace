@@ -5,9 +5,6 @@ public class 구글서비스 {
     protected String 서비스이름;
     protected boolean 로그인유무;
 
-    // 메서드
-    // 기본생성자 파라미터 생성자
-
     public 구글서비스(String 서비스이름) {
         this.서비스이름 = 서비스이름;
     }
