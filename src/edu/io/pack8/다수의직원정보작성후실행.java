@@ -40,6 +40,7 @@ public class 다수의직원정보작성후실행 {
             Files.createDirectories(path.getParent());
             Files.writeString(path,sb);
             System.out.println("파일이 성공적으로 생성되었습니다 : " + path);
+
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
