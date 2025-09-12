@@ -5,10 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Scanner;
 
-/*
-class EmployeeFileWriter
- */
-public class 다수의직원정보작성후실행 {
+public class 다수의직원정보실행 {
 
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
