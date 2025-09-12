@@ -122,17 +122,17 @@ public class StringBuilderService {
 
 
                 System.out.print("수입/지출 : ");
-                String 돈 = sc.nextLine();
+                String money = sc.nextLine();
 
-                String 계산 = "";
+//                String 계산 = "";
+//
+//                if(돈.equals("수입")){
+//                    계산 = "+";
+//                }else if(돈.equals("지출")){
+//                    계산 = "-";
+//                }
 
-                if(돈.equals("수입")){
-                    계산 = "+";
-                }else if(돈.equals("지출")){
-                    계산 = "-";
-                }
-
-                accountData.append(timestamp + " - 급여 : " + 계산 + 금액 + "원 (" + 돈 + ")");
+                accountData.append(timestamp + " - 급여 : " + 금액 + "원 (" + money + ")\n");
             }
 
             Files.writeString(accountFile, accountData.toString(), StandardOpenOption.CREATE,StandardOpenOption.APPEND);
