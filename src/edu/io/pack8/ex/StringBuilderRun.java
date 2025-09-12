@@ -4,10 +4,10 @@ public class StringBuilderRun {
 
     public static void main(String[] args) {
 
-        StringBuilderService service = new StringBuilderService();
+        StringBuilderService sbs = new StringBuilderService();
 
-        // service.saveBooks();
-        // service.manageGrades();
-        service.recordCount();
+        // sbs.saveBooks();
+        // sbs.manageGrades();
+        sbs.recordCount();
     }
 }

@@ -64,6 +64,8 @@ public class StringBuilderService {
         try {
             Files.createDirectories(gradeDir);
 
+            System.out.println(gradeDir + "폴더 생성되었습니다.");
+
             System.out.println("학생 성적을 입력하세요 (종료를 입력하면 저장됩니다)");
 
             while(true){
@@ -75,17 +77,23 @@ public class StringBuilderService {
                 }
 
                 System.out.print("국어 : ");
-                String kor =  sc.nextLine();
+                int kor =  sc.nextInt();
+                sc.nextLine();
 
                 System.out.print("영어 : ");
-                String eng =  sc.nextLine();
+                int eng =  sc.nextInt();
+                sc.nextLine();
 
                 System.out.print("수학 : ");
-                String math =  sc.nextLine();
+                int math =  sc.nextInt();
+                sc.nextLine();
 
-                gradeData.append("이름 : " + name + ", 국어 : " + kor + ", 영어 : " + eng + ", 수학 : " + math + "\n");
+                double avg = (kor+eng+math) / 3.0;
+
+                gradeData.append("이름 : " + name + ", 국어 : " + kor + ", 영어 : " + eng + ", 수학 : " + math + ", 평균 : " + avg + "\n");
             }
 
+            // 모든 입력이 되어, 종료 를 작성했다면
             Files.writeString(gradeFile, gradeData.toString());
 
             System.out.println("\n오늘 성적표가 작성되었습니다 : " + gradeFile.getFileName());
@@ -119,37 +127,33 @@ public class StringBuilderService {
 
                 System.out.print("금액 : ");
                 int 금액 = sc.nextInt();
-
+                sc.nextLine(); // 숫자나 소수자리는 작성하고 나면 줄바꿈 처리가 되기 때문에 반드시 nextLine() 써야함
 
                 System.out.print("수입/지출 : ");
                 String money = sc.nextLine();
 
-//                String 계산 = "";
-//
-//                if(돈.equals("수입")){
-//                    계산 = "+";
-//                }else if(돈.equals("지출")){
-//                    계산 = "-";
-//                }
+                String 계산 = "";
 
-                accountData.append(timestamp + " - 급여 : " + 금액 + "원 (" + money + ")\n");
+                if(money.equals("수입")){
+                    계산 = "+";
+                }else if(money.equals("지출")){
+                    계산 = "-";
+                }
+
+                accountData.append(timestamp + " - " + 항목 + " : " + 계산 + 금액 + "원 (" + money + ")\n");
             }
 
             Files.writeString(accountFile, accountData.toString(), StandardOpenOption.CREATE,StandardOpenOption.APPEND);
             System.out.println("가계부 기록이 추가되었습니다.");
-            System.out.println("=== 전체 가게부 기록 ===");
+            System.out.println("=== 전체 가계부 기록 ===");
             System.out.println(Files.readString(accountFile));
 
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 
     public String getCurrentTime(){
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
-
-
 }
