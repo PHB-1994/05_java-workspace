@@ -12,10 +12,10 @@ public class Student {
     // 생성자
     public Student() {
     }
-    public Student(String name, String studentId, List<Student> students) {
+    public Student(String name, String studentId, Map<String, Integer> scores) {
         this.name = name;
         this.studentId = studentId;
-        this.students = students;
+        this.scores = scores;
     }
 
     // 게터 세터
@@ -31,10 +31,10 @@ public class Student {
     public void setStudentId(String studentId) {
         this.studentId = studentId;
     }
-    public List<Student> getStudents() {
-        return students;
+    public Map<String, Integer> getScores() {
+        return scores;
     }
-    public void setStudents(List<Student> students) {
-        this.students = students;
+    public void setScores(Map<String, Integer> scores) {
+        this.scores = scores;
     }
 }
