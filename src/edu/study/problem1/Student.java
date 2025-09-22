@@ -1,24 +1,24 @@
-package edu.practice.study.problem1;
+package edu.study.problem1;
 
 import java.util.*;
 
 public class Student {
-    // 필드
+
     private String name;
     private String studentId;
     private Map<String, Integer> scores = new HashMap<>();
 
-
-    // 생성자
-    public Student() {
+    public Student(String name, String studentId) {
+        this.name = name;
+        this.studentId = studentId;
     }
+
     public Student(String name, String studentId, Map<String, Integer> scores) {
         this.name = name;
         this.studentId = studentId;
         this.scores = scores;
     }
 
-    // 게터 세터
     public String getName() {
         return name;
     }
@@ -37,4 +37,14 @@ public class Student {
     public void setScores(Map<String, Integer> scores) {
         this.scores = scores;
     }
+
+    void studentScore(String studentName, int score){
+        scores.put(studentName,score);
+    }
+
+    public void addScore(String studentName, int score){
+        scores.put(studentName, score);
+    }
+
+
 }
